@@ -1,15 +1,13 @@
 <template>
   <section class="alloy-page">
-    <h1>Start</h1>
+    <div class="inner">
+      <Progress/>
 
-    <Progress/>
+      <Map/>
 
-    <Map/>
-
-    <!-- <button @click="calcTotal">calcTotal</button> -->
-    <!-- <pre>{{ this.$store.state.powerStations }}</pre> -->
-    <nuxt-link to="/" class="btn">back</nuxt-link>
-
+      <!-- <button @click="calcTotal">calcTotal</button> -->
+      <!-- <pre>{{ this.$store.state.powerStations }}</pre> -->
+    </div>
   </section>
 </template>
 
@@ -35,5 +33,12 @@ created(){
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
+.alloy-page {
+  height: 100vh;
+  width: 90vmin;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 </style>
