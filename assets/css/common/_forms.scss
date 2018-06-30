@@ -1,0 +1,18 @@
+.btn {
+  background-color: $brand-one;
+  text-decoration: none;
+  color: $brand-dark;
+  padding: $base-margin - 5px $base-margin;
+  display: inline-block;
+  transition: background-color, color;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+
+  &:active,
+  &:focus,
+  &:hover {
+    color: $brand-dark;
+    background-color: $brand-two;
+    text-decoration: none;
+  }
+}

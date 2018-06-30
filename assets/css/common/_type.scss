@@ -1,0 +1,90 @@
+body,
+html {
+  font-family: "Renner*", sans-serif;
+  font-size: 18px;
+  line-height: 1.875;
+}
+
+p {
+  margin-bottom: $base-margin;
+}
+
+.small {
+  font-size: 0.8rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+  line-height: 1.25;
+  margin: 0;
+}
+
+h1 {
+  font-size: 48px;
+  color: $brand-one;
+  margin-bottom: 2 * $base-margin;
+  span {
+    font-weight: 400;
+  }
+}
+
+h2 {
+  font-size: 36px;
+  color: $brand-one;
+  margin-bottom: 2 * $base-margin;
+}
+
+h3 {
+  font-size: 30px;
+  margin-bottom: $base-margin;
+}
+
+h4 {
+  font-size: 24px;
+  margin-bottom: $base-margin;
+}
+
+h5 {
+  font-size: 1rem;
+}
+
+h6 {
+  font-size: 0.8rem;
+}
+
+a {
+  color: $brand-one;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+
+  &:active,
+  &:focus,
+  &:hover {
+    color: $brand-two;
+    text-decoration: none;
+  }
+}
+
+.centered {
+  text-align: center;
+}
+
+.alloy-pull-right {
+  text-align: right;
+}
+
+hr {
+  border: 0;
+  height: 2px;
+  width: 40px;
+  background-color: $brand-light;
+  text-align: left;
+}

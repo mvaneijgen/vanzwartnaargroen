@@ -1,0 +1,273 @@
+[
+  {
+    "brandstof": "Gas",
+    "vermogen": 256,
+    "uitstoot": "406988",
+    "lat": 51.81017,
+    "lon": 4.423916,
+    "enable": false
+  },
+  {
+    "brandstof": "Kolen",
+    "vermogen": 1040,
+    "uitstoot": "6677210",
+    "lat": 51.657576,
+    "lon": 3.656232,
+    "enable": true
+  },
+  {
+    "brandstof": "Gas",
+    "vermogen": 110,
+    "uitstoot": "157991",
+    "lat": 52.196771,
+    "lon": 4.140822,
+    "enable": true
+  },
+  {
+    "brandstof": "Gas",
+    "vermogen": 83,
+    "uitstoot": "147029",
+    "lat": 52.364989,
+    "lon": 4.403808,
+    "enable": true
+  },
+  {
+    "brandstof": "Gas",
+    "vermogen": 77,
+    "uitstoot": "255714",
+    "lat": 52.454989,
+    "lon": 4.303808,
+    "enable": true
+  },
+  {
+    "brandstof": "Gas",
+    "vermogen": 315,
+    "uitstoot": "469077",
+    "lat": 52.1539,
+    "lon": 4.682147,
+    "enable": true
+  },
+  {
+    "brandstof": "Gas",
+    "vermogen": 247,
+    "uitstoot": "494759",
+    "lat": 52.282928,
+    "lon": 5.241417,
+    "enable": true
+  },
+  {
+    "brandstof": "Gas",
+    "vermogen": 320,
+    "uitstoot": "335280",
+    "lat": 51.76,
+    "lon": 5.446315,
+    "enable": true
+  },
+  {
+    "brandstof": "Gas",
+    "vermogen": 870,
+    "uitstoot": "400218",
+    "lat": 52.042826,
+    "lon": 3.815644,
+    "enable": true
+  },
+  {
+    "brandstof": "Gas",
+    "vermogen": 92,
+    "uitstoot": "4922",
+    "lat": 52.211923,
+    "lon": 4.403647,
+    "enable": true
+  },
+  {
+    "brandstof": "Kolen",
+    "vermogen": 426,
+    "uitstoot": "2177074",
+    "lat": 51.521698,
+    "lon": 3.848908,
+    "enable": true
+  },
+  {
+    "brandstof": "Nucleair",
+    "vermogen": 485,
+    "uitstoot": "0",
+    "lat": 51.431698,
+    "lon": 3.718908,
+    "enable": true
+  },
+  {
+    "brandstof": "Kolen",
+    "vermogen": 1245,
+    "uitstoot": "5881587",
+    "lat": 51.708397,
+    "lon": 5.14378,
+    "enable": true
+  },
+  {
+    "brandstof": "Kolen",
+    "vermogen": 156,
+    "uitstoot": "7800000",
+    "lat": 53.439457,
+    "lon": 6.861668,
+    "enable": true
+  },
+  {
+    "brandstof": "Gas",
+    "vermogen": 231,
+    "uitstoot": "462000",
+    "lat": 50.779749,
+    "lon": 5.809102,
+    "enable": true
+  },
+  {
+    "brandstof": "Gas",
+    "vermogen": 1230,
+    "uitstoot": "586857",
+    "lat": 51.356089,
+    "lon": 4.501681,
+    "enable": true
+  },
+  {
+    "brandstof": "Gas",
+    "vermogen": 1913,
+    "uitstoot": "713739",
+    "lat": 51.35323,
+    "lon": 5.905109,
+    "enable": true
+  },
+  {
+    "brandstof": "Gas",
+    "vermogen": 664,
+    "uitstoot": "2062",
+    "lat": 53.209436,
+    "lon": 6.028117,
+    "enable": true
+  },
+  {
+    "brandstof": "Gas",
+    "vermogen": 2445,
+    "uitstoot": "1623948",
+    "lat": 53.285941,
+    "lon": 7.37842,
+    "enable": true
+  },
+  {
+    "brandstof": "Kolen",
+    "vermogen": 800,
+    "uitstoot": "4000000",
+    "lat": 52.055707,
+    "lon": 4.300134,
+    "enable": true
+  },
+  {
+    "brandstof": "Kolen",
+    "vermogen": 602,
+    "uitstoot": "2722750",
+    "lat": 51.855313,
+    "lon": 5.835938,
+    "enable": true
+  },
+  {
+    "brandstof": "Gas",
+    "vermogen": 350,
+    "uitstoot": "2047",
+    "lat": 52.469116,
+    "lon": 6.109074,
+    "enable": true
+  },
+  {
+    "brandstof": "Gas",
+    "vermogen": 1000,
+    "uitstoot": "1418476",
+    "lat": 52.575703,
+    "lon": 5.529383,
+    "enable": true
+  },
+  {
+    "brandstof": "Gas",
+    "vermogen": 43,
+    "uitstoot": "86000",
+    "lat": 51.873579,
+    "lon": 4.260192,
+    "enable": true
+  },
+  {
+    "brandstof": "Gas",
+    "vermogen": 684,
+    "uitstoot": "1043709",
+    "lat": 52.342957,
+    "lon": 5.012284,
+    "enable": true
+  },
+  {
+    "brandstof": "Kolen",
+    "vermogen": 630,
+    "uitstoot": "3307886",
+    "lat": 52.405427,
+    "lon": 4.844821,
+    "enable": true
+  },
+  {
+    "brandstof": "Gas",
+    "vermogen": 435,
+    "uitstoot": "870000",
+    "lat": 52.529427,
+    "lon": 4.684821,
+    "enable": true
+  },
+  {
+    "brandstof": "Gas",
+    "vermogen": 132,
+    "uitstoot": "734257",
+    "lat": 53.449219,
+    "lon": 6.533869,
+    "enable": true
+  },
+  {
+    "brandstof": "Gas",
+    "vermogen": 870,
+    "uitstoot": "1119570",
+    "lat": 51.347985,
+    "lon": 3.55307,
+    "enable": true
+  },
+  {
+    "brandstof": "Gas",
+    "vermogen": 430,
+    "uitstoot": "1292130",
+    "lat": 52.142926,
+    "lon": 4.510891,
+    "enable": true
+  },
+  {
+    "brandstof": "Gas",
+    "vermogen": 460,
+    "uitstoot": "1391541",
+    "lat": 51.185093,
+    "lon": 3.936595,
+    "enable": true
+  },
+  {
+    "brandstof": "Gas",
+    "vermogen": 425,
+    "uitstoot": "241515",
+    "lat": 51.894241,
+    "lon": 4.349629,
+    "enable": true
+  },
+  {
+    "brandstof": "Gas",
+    "vermogen": 820,
+    "uitstoot": "208067",
+    "lat": 52.004241,
+    "lon": 4.609629,
+    "enable": true
+  },
+  {
+    "brandstof": "Gas",
+    "vermogen": 24,
+    "uitstoot": "48000",
+    "lat": 52.150263,
+    "lon": 4.192973
+  }
+]
