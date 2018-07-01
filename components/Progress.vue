@@ -2,7 +2,7 @@
   <div class="component-Progress">
     <div class="alloy-progress alloy-energy">
       <label :for="this.$store.state.energyMax.name">{{ this.$store.state.energyMax.name }}</label>
-      <h3>{{ this.$store.state.energyMax.amount }}
+      <h3>{{ this.$store.state.energyCurrent }}
         <span v-html="this.$store.state.energyMax.suffix"></span>
       </h3>
       <progress id="file" name="file" :max="this.$store.state.energyMax.amount" :value="this.$store.state.energyCurrent">
@@ -12,7 +12,7 @@
 
     <div class="alloy-progress alloy-co2">
       <label :for="this.$store.state.co2Max.name">{{ this.$store.state.co2Max.name }}</label>
-      <h3>{{ this.$store.state.co2Max.amount }}
+      <h3>{{ this.$store.state.co2Current }}
         <span v-html="this.$store.state.co2Max.suffix"></span>
       </h3>
       <progress id="file" name="file" :max="this.$store.state.co2Max.amount" :value="this.$store.state.co2Current">

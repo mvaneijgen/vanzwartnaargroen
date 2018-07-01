@@ -60,12 +60,14 @@ const createStore = () => {
       },
       decrementSolarPanels: (state, payload) => {
         state.solarPanels.amount -= payload;
-      },
+      }
+    },
+    actions: {
       // ---------------------------------------------------------------------- //
       // Calculate MAXIMUM total of all ️️⚡ power stations power stations
       // ---------------------------------------------------------------------- //
       calcAllPowerStation: context => {
-        const allPowerStations = context.powerStations;
+        const allPowerStations = context.state.powerStations;
         // Calculate total of all ⚡ power stations power stations
         const calcAllEnergy = Object.keys(allPowerStations).reduce(function(
           previous,
@@ -77,8 +79,10 @@ const createStore = () => {
 
         // Increase ⚡ energy production by 10%
         const calcAllEnergyIncreased = (calcAllEnergy / 100) * 110;
+        console.log(calcAllEnergy);
+        console.log(calcAllEnergyIncreased);
         // ⚡ Set state
-        context.powerStationsEnergyMax = calcAllEnergyIncreased;
+        context.state.powerStationsEnergyMax = calcAllEnergyIncreased;
 
         // Calculate total of all 🚗 CO₂ of the power stations
         const calcAllCo2 = Object.keys(allPowerStations).reduce(function(
@@ -89,7 +93,7 @@ const createStore = () => {
         },
         0);
         // 🚗 Set state
-        context.powerStationsCo2Max = calcAllCo2;
+        context.state.powerStationsCo2Max = calcAllCo2;
       },
       // ---------------------------------------------------------------------- //
       // END Calculate MAXIMUM total of all ️️⚡ power stations power stations
@@ -99,7 +103,7 @@ const createStore = () => {
       // Filter enabled (CURRENT) ⚡ power stations & 🔢 calculate there total
       // ---------------------------------------------------------------------- //
       calcEnabledPowerStation: context => {
-        const allPowerStations = context.powerStations;
+        const allPowerStations = context.state.powerStations;
 
         // FILTER
         const result = allPowerStations.filter(item => item.enable);
@@ -113,7 +117,7 @@ const createStore = () => {
         },
         0);
         // ⚡ Set state
-        context.powerStationsEnergyCurrent = calcTotalEnableEnergy;
+        context.state.powerStationsEnergyCurrent = calcTotalEnableEnergy;
 
         // Calculate total of all 🚗 CO₂ of the power stations
         const calcTotalEnableCo2 = Object.keys(result).reduce(function(
@@ -124,7 +128,7 @@ const createStore = () => {
         },
         0);
         // 🚗 Set state
-        context.powerStationsCo2Current = calcTotalEnableCo2;
+        context.state.powerStationsCo2Current = calcTotalEnableCo2;
       },
       // ---------------------------------------------------------------------- //
       // END Filter enabled (CURRENT) ⚡ power stations & 🔢 calculate there total
@@ -134,11 +138,11 @@ const createStore = () => {
       // 🔢 Calculate the total off all 🌬 wind turbines
       // ---------------------------------------------------------------------- //
       calcWindTurbines: context => {
-        const allWindTurbines = context.windTurbines;
+        const allWindTurbines = context.state.windTurbines;
         const totalWindProduction =
           allWindTurbines.amount * allWindTurbines.production;
 
-        context.solarPanelsEnergyMax = totalWindProduction;
+        context.state.solarPanelsEnergyMax = totalWindProduction;
       },
       // ---------------------------------------------------------------------- //
       // END 🔢 Calculate the total off all 🌬 wind turbines
@@ -148,11 +152,11 @@ const createStore = () => {
       // 🔢 Calculate the total off all ☀️ solar panales
       // ---------------------------------------------------------------------- //
       calcSolarPanels: context => {
-        const allWindTurbines = context.windTurbines;
+        const allWindTurbines = context.state.windTurbines;
         const totalWindProduction =
           allWindTurbines.amount * allWindTurbines.production;
 
-        context.solarPanelsEnergyMax = totalWindProduction;
+        context.state.solarPanelsEnergyMax = totalWindProduction;
       },
       // ---------------------------------------------------------------------- //
       // END 🔢 Calculate the total off all ☀️ solar panales
@@ -164,55 +168,53 @@ const createStore = () => {
       combineAllMax: context => {
         // ⚡️ Energy Max
         const arrayEnergyAllMax = [
-          context.powerStationsEnergyMax,
-          context.windTurbinesEnergyMax,
-          context.solarPanelsEnergyMax
+          context.state.powerStationsEnergyMax,
+          context.state.windTurbinesEnergyMax,
+          context.state.solarPanelsEnergyMax
         ].reduce((a, b) => a + b, 0);
 
-        context.energyMax.amount = arrayEnergyAllMax;
+        context.state.energyMax.amount = arrayEnergyAllMax;
 
         // ⚡️ Energy Current
         const arrayEnergyAllCurrent = [
-          context.powerStationsEnergyCurrent,
-          context.windTurbinesEnergyMax,
-          context.solarPanelsEnergyMax
+          context.state.powerStationsEnergyCurrent,
+          context.state.windTurbinesEnergyMax,
+          context.state.solarPanelsEnergyMax
         ].reduce((a, b) => a + b, 0);
 
-        context.energyCurrent = arrayEnergyAllCurrent;
+        context.state.energyCurrent = arrayEnergyAllCurrent;
 
         // 🚗 CO₂ Max
-        const arrayCo2AllMax = [context.powerStationsCo2Max].reduce(
+        const arrayCo2AllMax = [context.state.powerStationsCo2Max].reduce(
           (a, b) => a + b,
           0
         );
 
-        context.co2Max.amount = arrayCo2AllMax;
+        context.state.co2Max.amount = arrayCo2AllMax;
 
         // 🚗 CO₂ Current
-        const arrayCo2AllCurrent = [context.powerStationsCo2Current].reduce(
-          (a, b) => a + b,
-          0
-        );
+        const arrayCo2AllCurrent = [
+          context.state.powerStationsCo2Current
+        ].reduce((a, b) => a + b, 0);
 
-        context.co2Current = arrayCo2AllCurrent;
-      }
+        context.state.co2Current = arrayCo2AllCurrent;
+      },
       // ---------------------------------------------------------------------- //
       // END 🔢 Calculate & combine everything
       // ---------------------------------------------------------------------- //
-    },
-    actions: {
+
       // ---------------------------------------------------------------------- //
       // Functions that call all above and calculates a totoal
       // This function is ran on create() in start/index.vue
       // ---------------------------------------------------------------------- //
       calcAllTotal: ({ dispatch, commit }) => {
-        commit("calcAllPowerStation");
-        commit("calcEnabledPowerStation");
-        commit("calcWindTurbines");
-        commit("calcSolarPanels");
+        dispatch("calcAllPowerStation");
+        dispatch("calcEnabledPowerStation");
+        dispatch("calcWindTurbines");
+        dispatch("calcSolarPanels");
 
         // 🔢 After everything is calculated add them all up
-        commit("combineAllMax");
+        dispatch("combineAllMax");
       }
     }
   });
