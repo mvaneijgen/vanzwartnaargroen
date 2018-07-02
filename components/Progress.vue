@@ -1,28 +1,40 @@
 <template>
-  <div class="component-Progress">
+  <div class="component-Progress alloy-ui">
     <div class="alloy-progress alloy-energy">
-      <label :for="this.$store.state.energyMax.name">{{ this.$store.state.energyMax.name }}</label>
-      <h3>{{ this.$store.state.energyCurrent }}
-        <span v-html="this.$store.state.energyMax.suffix"></span>
+      {{ powerStationEnergyMax}}
+      <!-- <p>All add up: {{ energyProductionCalcAllCurrent }}</p>
+      <p>powerStationEnergyMax: {{ powerStationEnergyMax }}</p>
+      <p>powerStationEnergyCurrent: {{ powerStationEnergyCurrent }}</p>
+      <p>windProductionCurrent: {{ windProductionCurrent }}</p>
+      <p>solarProductionCurrent: {{ solarProductionCurrent }}</p> -->
+      <label for="Energieopwekking">Energieopwekking</label>
+      <h3>{{ energyProductionCalcAllCurrent }}
+        <span>kWh</span>
       </h3>
-      <progress id="file" name="file" :max="this.$store.state.energyMax.amount" :value="this.$store.state.energyCurrent">
-        {{ this.$store.state.energyCurrent }} current / {{ this.$store.state.energyMax.amount }} max
+      <progress id="Energieopwekking" name="Energieopwekking" :max="powerStationEnergyMax" :value="energyProductionCalcAllCurrent">
+        {{ energyProductionCalcAllCurrent }} current / {{ powerStationEnergyMax }} max
       </progress>
     </div>
 
     <div class="alloy-progress alloy-co2">
-      <label :for="this.$store.state.co2Max.name">{{ this.$store.state.co2Max.name }}</label>
-      <h3>{{ this.$store.state.co2Current }}
-        <span v-html="this.$store.state.co2Max.suffix"></span>
+      <!-- <p>powerStationCo2Max: {{ this.$store.getters.powerStationCo2Max }}</p>
+      <p>powerStationCo2Current: {{ this.$store.getters.powerStationCo2Current }}</p> -->
+      <label for="Uitstoot">Uitstoot</label>
+      <h3>{{ powerStationCo2Current }}
+        <span>CO
+          <sub>2</sub>
+        </span>
       </h3>
-      <progress id="file" name="file" :max="this.$store.state.co2Max.amount" :value="this.$store.state.co2Current">
-        {{ this.$store.state.co2Current }} current / {{ this.$store.state.co2Max.amount }} max
+      <progress id="Uitstoot" name="Uitstoot" :max="powerStationCo2Max" :value="powerStationCo2Current">
+        {{ powerStationCo2Current }} current / {{ powerStationCo2Max }} max
       </progress>
     </div>
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 export default {
   // props: [],
   name: 'Progress',
@@ -31,7 +43,30 @@ export default {
       title: 'Progress'
     }
   }, // End data
-  // computed: {},
+  computed: {
+    // mix the getters into computed with object spread operator
+    ...mapGetters([
+      // ⚡ Energy production 
+      'powerStationEnergyMax',
+      // CURRENT
+      'powerStationEnergyCurrent',
+      'windProductionCurrent',
+      'solarProductionCurrent',
+      // 🚗 CO₂ production
+      'powerStationCo2Max',
+      'powerStationCo2Current',
+    ]),
+    energyProductionCalcAllCurrent: function() {
+        // ⚡️ Energy Max
+        const arrayEnergyAllMax = [
+          this.powerStationEnergyCurrent,
+          this.windProductionCurrent,
+          this.solarProductionCurrent
+        ].reduce((a, b) => a + b, 0);
+
+        return arrayEnergyAllMax;
+    }
+  },
   // methods: {},
   // watch: {},
 
@@ -41,9 +76,5 @@ export default {
 }
 </script>
 
-<style lang="scss"  scoped>
-// @import '~/assets/css/common/_variables.scss';
-// h1 {
-//   color: #0ba;
-// }
+<style lang="scss" scoped>
 </style>

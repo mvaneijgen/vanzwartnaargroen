@@ -24,24 +24,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "~/assets/css/common/_variables.scss";
-
-.alloy-intro {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  width: 100%;
-
-  .inner {
-    max-width: 600px;
-    color: $brand-light;
-  }
-  h1 {
-    font-size: 1.2em;
-  }
-  .logo {
-    margin-bottom: $base-margin * 4;
-  }
-}
+// @import "~/assets/css/common/_variables.scss";
 </style>

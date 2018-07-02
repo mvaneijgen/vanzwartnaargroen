@@ -27,7 +27,44 @@ body {
 //------------------------------------------------------//
 // Page transtions
 //------------------------------------------------------//
+// .alloy-page {
+//   height: 100vh;
+//   width: 90vmin;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   .inner {
+//     width: 100%;
+//   }
+// }
+.alloy-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
 
+  .inner {
+    position: relative;
+    width: 90vmin;
+    color: $brand-light;
+  }
+  h1 {
+    font-size: 1.2em;
+  }
+  .logo {
+    margin-bottom: $base-margin * 4;
+  }
+}
 //-----------------------------------------------------//
 // END Page transtions
+//------------------------------------------------------//
+//------------------------------------------------------//
+// 📱 UI elements
+//------------------------------------------------------//
+.alloy-ui {
+  position: absolute;
+}
+//------------------------------------------------------//
+// END 📱 UI elements
 //------------------------------------------------------//

@@ -36,11 +36,4 @@ created(){
 </script>
 
 <style lang="scss" scoped>
-.alloy-page {
-  height: 100vh;
-  width: 90vmin;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 </style>

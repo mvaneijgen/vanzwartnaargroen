@@ -1,5 +1,5 @@
 <template>
-  <div class="component-RenewableEnergy">
+  <div class="component-RenewableEnergy alloy-ui">
     <div class="alloy-windTurbines">
       {{ this.$store.state.windTurbines.amount }}
       <div class="alloy-counter">
@@ -47,4 +47,7 @@ export default {
 
 <style lang="scss"  scoped>
 // @import '~/assets/css/common/_variables.scss';
+.alloy-ui {
+  right: 0;
+}
 </style>
