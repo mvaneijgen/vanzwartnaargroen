@@ -175,21 +175,26 @@ const createStore = () => {
       // ---------------------------------------------------------------------- //
       // Toggle a specific fuel category of 🏭 power stations
       // ---------------------------------------------------------------------- //
-      togglePowerStationCat: (state, updataFuel, off) => {
+      togglePowerStationCat: (state, object) => {
         const allPowerStations = state.powerStations;
 
-        // // FILTER
-        // const result = allPowerStations.filter(
-        //   item => item.brandstof === updataFuel
-        // );
-        if (off) {
+        console.log(object.fuel);
+        console.log(object.toggle);
+
+        if (object.toggle === "off") {
           allPowerStations.forEach(element => {
-            if (element.brandstof === updataFuel) {
+            if (element.brandstof === object.fuel) {
               element.enable = false;
             }
           });
         } else {
+          allPowerStations.forEach(element => {
+            if (element.brandstof === object.fuel) {
+              element.enable = true;
+            }
+          });
         }
+        console.log(allPowerStations);
       }
     },
     actions: {

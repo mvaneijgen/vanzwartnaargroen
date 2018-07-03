@@ -1,7 +1,7 @@
 <template>
   <div class="component-PowerCategory alloy-ui">
     <div class="innner">
-      <button @click="toggleOff" data-toggle="off" data-fuel="Kool">
+      <button @click="toggleOff" data-toggle="off" data-fuel="Kolen">
         coal
       </button>
       <button @click="toggleOff" data-toggle="off" data-fuel="Gas">
@@ -34,10 +34,21 @@ export default {
     ]),
     toggleOff: function(e) {
       const target = e.target
-      // Run Vuex getter
-      this.togglePowerStationCat(target.getAttribute('data_fuel'), target.getAttribute('data_toggle'));
 
-      // Change toggle 
+      const parameterObj = {
+        fuel: target.dataset.fuel,
+        toggle: target.dataset.toggle
+      }
+
+      // Run Vuex getter
+      this.togglePowerStationCat(parameterObj);
+
+      // Switch toggle true or false
+      if (target.dataset.toggle === 'off') {
+        target.dataset.toggle = 'on'
+      } else {
+        target.dataset.toggle = 'off'
+      }
     }
    
   },
