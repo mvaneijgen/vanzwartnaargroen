@@ -194,7 +194,6 @@ const createStore = () => {
             }
           });
         }
-        console.log(allPowerStations);
       }
     },
     actions: {

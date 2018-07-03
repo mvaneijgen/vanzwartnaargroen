@@ -1,17 +1,17 @@
 <template>
   <div class="component-RenewableEnergy alloy-ui">
     <div class="alloy-windTurbines">
-      {{ this.$store.state.windTurbines.amount }}
+      <div class="alloy-amount">{{ this.$store.state.windTurbines.amount }}</div>
       <div class="alloy-counter">
-        <button class="btn" @click="incrementWindTurbines(100)">+</button>
         <button class="btn" @click="decrementWindTurbines(100)">-</button>
+        <button class="btn" @click="incrementWindTurbines(100)">+</button>
       </div>
     </div>
     <div class="alloy-solarPanels">
-      {{ this.$store.state.solarPanels.amount }}
+      <div class="alloy-amount">{{ this.$store.state.solarPanels.amount }}</div>
       <div class="alloy-counter">
-        <button class="btn" @click="incrementSolarPanels(100)">+</button>
         <button class="btn" @click="decrementSolarPanels(100)">-</button>
+        <button class="btn" @click="incrementSolarPanels(100)">+</button>
       </div>
     </div>
   </div>

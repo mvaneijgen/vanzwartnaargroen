@@ -1,32 +1,39 @@
 <template>
   <div class="component-Progress alloy-ui">
     <div class="alloy-progress alloy-energy">
-      <p>All add up: {{ energyProductionCalcAllCurrent }}</p>
+      <!-- <p>All add up: {{ energyProductionCalcAllCurrent }}</p>
       <p>powerStationEnergyMax: {{ powerStationEnergyMax }}</p>
       <p>powerStationEnergyCurrent: {{ powerStationEnergyCurrent }}</p>
       <p>windProductionCurrent: {{ windProductionCurrent }}</p>
-      <p>solarProductionCurrent: {{ solarProductionCurrent }}</p>
-      <label for="Energieopwekking">Energieopwekking</label>
+      <p>solarProductionCurrent: {{ solarProductionCurrent }}</p> -->
       <h3>{{ energyProductionCalcAllCurrent }}
         <span>kWh</span>
       </h3>
-      <progress id="Energieopwekking" name="Energieopwekking" :max="powerStationEnergyMax" :value="energyProductionCalcAllCurrent">
-        {{ energyProductionCalcAllCurrent }} current / {{ powerStationEnergyMax }} max
-      </progress>
+      <div class="alloy-progressbar">
+        <label for="Energieopwekking">Energieopwekking</label>
+
+        <progress id="Energieopwekking" name="Energieopwekking" :max="powerStationEnergyMax" :value="energyProductionCalcAllCurrent">
+          {{ energyProductionCalcAllCurrent }} current / {{ powerStationEnergyMax }} max
+        </progress>
+      </div>
     </div>
 
     <div class="alloy-progress alloy-co2">
       <!-- <p>powerStationCo2Max: {{ this.$store.getters.powerStationCo2Max }}</p>
       <p>powerStationCo2Current: {{ this.$store.getters.powerStationCo2Current }}</p> -->
-      <label for="Uitstoot">Uitstoot</label>
       <h3>{{ powerStationCo2Current }}
         <span>CO
           <sub>2</sub>
         </span>
       </h3>
-      <progress id="Uitstoot" name="Uitstoot" :max="powerStationCo2Max" :value="powerStationCo2Current">
-        {{ powerStationCo2Current }} current / {{ powerStationCo2Max }} max
-      </progress>
+      <div class="alloy-progressbar">
+
+        <label for="Uitstoot">Uitstoot</label>
+
+        <progress id="Uitstoot" name="Uitstoot" :max="powerStationCo2Max" :value="powerStationCo2Current">
+          {{ powerStationCo2Current }} current / {{ powerStationCo2Max }} max
+        </progress>
+      </div>
     </div>
   </div>
 </template>
