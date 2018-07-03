@@ -3,6 +3,7 @@
     <div class="inner">
       <Progress/>
       <RenewableEnergy />
+      <PowerCategory />
       <Map/>
 
       <!-- <button @click="calcTotal">calcTotal</button> -->
@@ -12,9 +13,10 @@
 </template>
 
 <script>
-import Map from '@/components/Map.vue';
-import Progress from '@/components/Progress.vue';
-import RenewableEnergy from '@/components/RenewableEnergy.vue';
+import Map from '@/components/start/Map.vue';
+import Progress from '@/components/start/Progress.vue';
+import RenewableEnergy from '@/components/start/RenewableEnergy.vue';
+import PowerCategory from '@/components/start/PowerCategory.vue';
 
 import { mapActions } from 'vuex';
 
@@ -23,10 +25,11 @@ export default {
    Map,
    Progress,
    RenewableEnergy,
+   PowerCategory
 },
-created(){
-  this.$store.dispatch('calcAllTotal');
-},
+// created(){
+//   this.$store.dispatch('calcAllTotal');
+// },
 // methods: {
 //   ...mapActions([
 //     'calcTotal'

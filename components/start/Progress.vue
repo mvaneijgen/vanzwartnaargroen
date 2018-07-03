@@ -1,12 +1,11 @@
 <template>
   <div class="component-Progress alloy-ui">
     <div class="alloy-progress alloy-energy">
-      {{ powerStationEnergyMax}}
-      <!-- <p>All add up: {{ energyProductionCalcAllCurrent }}</p>
+      <p>All add up: {{ energyProductionCalcAllCurrent }}</p>
       <p>powerStationEnergyMax: {{ powerStationEnergyMax }}</p>
       <p>powerStationEnergyCurrent: {{ powerStationEnergyCurrent }}</p>
       <p>windProductionCurrent: {{ windProductionCurrent }}</p>
-      <p>solarProductionCurrent: {{ solarProductionCurrent }}</p> -->
+      <p>solarProductionCurrent: {{ solarProductionCurrent }}</p>
       <label for="Energieopwekking">Energieopwekking</label>
       <h3>{{ energyProductionCalcAllCurrent }}
         <span>kWh</span>
@@ -55,17 +54,19 @@ export default {
       // 🚗 CO₂ production
       'powerStationCo2Max',
       'powerStationCo2Current',
+      // ⚡️ Energy combined current 
+      'energyProductionCalcAllCurrent'
     ]),
-    energyProductionCalcAllCurrent: function() {
-        // ⚡️ Energy Max
-        const arrayEnergyAllMax = [
-          this.powerStationEnergyCurrent,
-          this.windProductionCurrent,
-          this.solarProductionCurrent
-        ].reduce((a, b) => a + b, 0);
+    // energyProductionCalcAllCurrent: function() {
+    //     // ⚡️ Energy Max
+    //     const arrayEnergyAllMax = [
+    //       this.powerStationEnergyCurrent,
+    //       this.windProductionCurrent,
+    //       this.solarProductionCurrent
+    //     ].reduce((a, b) => a + b, 0);
 
-        return arrayEnergyAllMax;
-    }
+    //     return arrayEnergyAllMax;
+    // }
   },
   // methods: {},
   // watch: {},

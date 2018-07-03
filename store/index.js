@@ -10,13 +10,13 @@ const createStore = () => {
       // 🌬 Wind Turbines
       windTurbines: {
         amount: 2032,
-        production: 3
+        production: 1.3 // One 🌬 Wind Turbine in kWh
       },
 
       // ☀️ Solar panels
       solarPanels: {
         amount: 21582,
-        production: 1
+        production: 0.0192 // One ☀️ Solar panel in kWh
       }
     },
     getters: {
@@ -33,9 +33,10 @@ const createStore = () => {
           return previous + Number(allPowerStations[key].vermogen);
         },
         0);
-
-        // Increase ⚡ energy production by 10%
-        const calcAllEnergyIncreased = (calcAllEnergy / 100) * 320;
+        // Convertcal mW to kW
+        // const convert = calcAllEnergy * 1000;
+        // Increase ⚡ energy production by 50%
+        const calcAllEnergyIncreased = (calcAllEnergy / 100) * 105 + 3000;
         // ⚡ Set state
         return calcAllEnergyIncreased;
       },
@@ -81,6 +82,8 @@ const createStore = () => {
           return previous + Number(result[key].vermogen);
         },
         0);
+        // Convertcal mW to kW
+        // const convert = calcTotalEnableEnergy * 1000;
         // ⚡ Set state
         return calcTotalEnableEnergy;
       },
@@ -133,7 +136,7 @@ const createStore = () => {
         const total = item.amount * item.production;
 
         return total;
-      }
+      },
       // ---------------------------------------------------------------------- //
       // END 🔢 Calculate the total off all ☀️ solar panales
       // ---------------------------------------------------------------------- //
@@ -141,41 +144,18 @@ const createStore = () => {
       // ---------------------------------------------------------------------- //
       // 🔢 Calculate & combine everything
       // ---------------------------------------------------------------------- //
-      // COMBINE_ALL_MAX: state => {
-      //   // ⚡️ Energy Max
-      //   const arrayEnergyAllMax = [
-      //     state.powerStationsEnergyMax,
-      //     state.windTurbinesEnergyMax,
-      //     state.solarPanelsEnergyMax
-      //   ].reduce((a, b) => a + b, 0);
+      energyProductionCalcAllCurrent: (state, getters) => {
+        const arrayEnergyAllMax = [
+          getters.powerStationEnergyCurrent,
+          getters.windProductionCurrent,
+          getters.solarProductionCurrent
+        ].reduce((a, b) => a + b, 0);
 
-      //   state.energyMax.amount = arrayEnergyAllMax;
-
-      //   // ⚡️ Energy Current
-      //   const arrayEnergyAllCurrent = [
-      //     state.powerStationsEnergyCurrent,
-      //     state.windTurbinesEnergyMax,
-      //     state.solarPanelsEnergyMax
-      //   ].reduce((a, b) => a + b, 0);
-
-      //   state.energyCurrent = arrayEnergyAllCurrent;
-
-      //   // 🚗 CO₂ Max
-      //   const arrayCo2AllMax = [state.powerStationsCo2Max].reduce(
-      //     (a, b) => a + b,
-      //     0
-      //   );
-
-      //   state.co2Max.amount = arrayCo2AllMax;
-
-      //   // 🚗 CO₂ Current
-      //   const arrayCo2AllCurrent = [state.powerStationsCo2Current].reduce(
-      //     (a, b) => a + b,
-      //     0
-      //   );
-
-      //   state.co2Current = arrayCo2AllCurrent;
-      // }
+        return Math.floor(arrayEnergyAllMax);
+      }
+      // ---------------------------------------------------------------------- //
+      // END 🔢  Calculate & combine everything
+      // ---------------------------------------------------------------------- //
     },
     mutations: {
       // 🌬 Update wind turbines
@@ -191,24 +171,40 @@ const createStore = () => {
       },
       decrementSolarPanels: (state, payload) => {
         state.solarPanels.amount -= payload;
+      },
+      // ---------------------------------------------------------------------- //
+      // Toggle a specific fuel category of 🏭 power stations
+      // ---------------------------------------------------------------------- //
+      togglePowerStationCat: (state, updataFuel, off) => {
+        const allPowerStations = state.powerStations;
+
+        // // FILTER
+        // const result = allPowerStations.filter(
+        //   item => item.brandstof === updataFuel
+        // );
+        if (off) {
+          allPowerStations.forEach(element => {
+            if (element.brandstof === updataFuel) {
+              element.enable = false;
+            }
+          });
+        } else {
+        }
       }
-      // ---------------------------------------------------------------------- //
-      // END 🔢 Calculate & combine everything
-      // ---------------------------------------------------------------------- //
     },
     actions: {
       // ---------------------------------------------------------------------- //
       // Functions that call all above and calculates a totoal
       // This function is ran on create() in start/index.vue
       // ---------------------------------------------------------------------- //
-      calcAllTotal: ({ dispatch, commit }) => {
-        // commit("CALC_ALL_POWER_STATIONS");
-        // commit("CALC_ENABLED_POWER_STATION");
-        // commit("CALC_WIND_TURBINES");
-        // commit("CALC_SOLAR_PANELS");
-        // // 🔢 After everything is calculated add them all up
-        // commit("COMBINE_ALL_MAX");
-      }
+      // calcAllTotal: ({ dispatch, commit }) => {
+      //   // commit("CALC_ALL_POWER_STATIONS");
+      //   // commit("CALC_ENABLED_POWER_STATION");
+      //   // commit("CALC_WIND_TURBINES");
+      //   // commit("CALC_SOLAR_PANELS");
+      //   // // 🔢 After everything is calculated add them all up
+      //   // commit("COMBINE_ALL_MAX");
+      // }
     }
   });
 };
