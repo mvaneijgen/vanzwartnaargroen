@@ -1,5 +1,8 @@
 <template>
   <section class="alloy-page">
+    <div class="alloy-zoom-out">
+      <Map/>
+    </div>
     <div class="alloy-intro">
       <div class="inner">
         <div class="logo centered">
@@ -18,11 +21,47 @@
 </template>
 
 <script>
+import Map from '@/components/start/Map.vue';
+
 export default {
-  transition: 'page'
+  components: {
+    Map,
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-// @import "~/assets/css/common/_variables.scss";
+@import "~/assets/css/common/_variables.scss";
+.alloy-intro {
+  position: relative;
+  background-color: rgba($brand-dark, 0.6);
+}
+.alloy-page {
+  background-color: rgba($brand-dark, 0.6);
+}
+.alloy-zoom-out {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+
+  .component-Map {
+    transform: scale(4);
+    transition: transform;
+    transition-duration: 300ms;
+    transition-timing-function: ease;
+
+    width: 90vmin;
+  }
+}
+.page-leave-active {
+  &.alloy-zoom-out {
+    .component-Map {
+      transform: scale(1);
+    }
+  }
+}
 </style>

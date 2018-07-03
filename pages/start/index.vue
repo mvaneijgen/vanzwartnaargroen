@@ -18,8 +18,6 @@ import Progress from '@/components/start/Progress.vue';
 import RenewableEnergy from '@/components/start/RenewableEnergy.vue';
 import PowerCategory from '@/components/start/PowerCategory.vue';
 
-import { mapActions } from 'vuex';
-
 export default {
   components: {
    Map,

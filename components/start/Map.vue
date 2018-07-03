@@ -546,3 +546,11 @@
         </svg>
     </div>
 </template>
+<style lang="scss" scoped>
+@import "~/assets/css/common/_variables.scss";
+
+.bg-circle {
+  fill: rgba($brand-light, 1);
+  opacity: 0.1;
+}
+</style>

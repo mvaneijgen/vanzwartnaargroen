@@ -2,13 +2,13 @@
   <div class="component-PowerCategory alloy-ui">
     <div class="innner">
       <button @click="toggleOff" data-toggle="off" data-fuel="Kolen">
-        coal
+        <img src="@/assets/images/ui/coal.svg" alt="">
       </button>
       <button @click="toggleOff" data-toggle="off" data-fuel="Gas">
-        gas
+        <img src="@/assets/images/ui/gas.svg" alt="">
       </button>
       <button @click="toggleOff" data-toggle="off" data-fuel="Nucleair">
-        nucliear
+        <img src="@/assets/images/ui/nuclear.svg" alt="">
       </button>
 
     </div>
@@ -62,8 +62,18 @@ export default {
 </script>
 
 <style lang="scss"  scoped>
-// @import '~/assets/css/common/_variables.scss';
+@import "~/assets/css/common/_variables.scss";
+
 .alloy-ui {
   bottom: 0;
+}
+button {
+  border-radius: 50%;
+  background-color: $brand-dark;
+  margin-bottom: $base-margin;
+
+  img {
+    pointer-events: none;
+  }
 }
 </style>

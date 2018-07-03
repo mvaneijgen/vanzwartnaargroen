@@ -6,7 +6,10 @@ button,
   color: $brand-dark;
   padding: $base-margin - 5px $base-margin;
   display: inline-block;
-  transition: background-color, color;
+  border: 2px solid transparent;
+
+  // Transition
+  transition: background-color, color, border-color;
   transition-duration: 0.3s;
   transition-timing-function: ease;
 
@@ -17,11 +20,26 @@ button,
     background-color: $brand-two;
     text-decoration: none;
   }
+  &:focus {
+    outline: none;
+    border-color: $brand-one;
+  }
+}
+button {
+  transition: opacity;
+  transition-duration: 300ms;
+  transition-timing-function: ease;
+}
+button[data-toggle="on"] {
+  opacity: 0.4;
 }
 
+//------------------------------------------------------//
+// Progress bar
+//------------------------------------------------------//
 progress {
   appearance: none;
-  height: $base-margin * 2;
+  height: 20px;
   width: 100%;
 }
 progress[value]::-webkit-progress-bar {
@@ -48,11 +66,6 @@ progress[value]::-webkit-progress-value {
   // border-radius: 2px;
   // background-size: 35px 20px, 100% 100%, 100% 100%;
 }
-button {
-  transition: opacity;
-  transition-duration: 300ms;
-  transition-timing-function: ease;
-}
-button[data-toggle="on"] {
-  opacity: 0.4;
-}
+//------------------------------------------------------//
+// END Progress bar
+//------------------------------------------------------//

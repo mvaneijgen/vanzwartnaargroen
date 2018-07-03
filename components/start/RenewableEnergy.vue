@@ -18,6 +18,7 @@
 </template>
 
 <script>
+
 import { mapMutations } from 'vuex';
 
 export default {
@@ -47,7 +48,4 @@ export default {
 
 <style lang="scss"  scoped>
 // @import '~/assets/css/common/_variables.scss';
-.alloy-ui {
-  right: 0;
-}
 </style>

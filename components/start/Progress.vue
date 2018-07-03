@@ -1,5 +1,8 @@
 <template>
   <div class="component-Progress alloy-ui">
+    <div class="logo">
+      <img src="~/assets/images/logo.svg">
+    </div>
     <div class="alloy-progress alloy-energy">
       <!-- <p>All add up: {{ energyProductionCalcAllCurrent }}</p>
       <p>powerStationEnergyMax: {{ powerStationEnergyMax }}</p>
@@ -85,4 +88,19 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.logo {
+  margin-top: 15px;
+  margin-bottom: 0;
+}
+h3 {
+  span {
+    position: relative;
+
+    sub {
+      position: absolute;
+      bottom: -5px;
+      right: -10px;
+    }
+  }
+}
 </style>
