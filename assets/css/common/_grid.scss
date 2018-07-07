@@ -27,13 +27,6 @@ body {
 //------------------------------------------------------//
 // Page transtions
 //------------------------------------------------------//
-.alloy-page {
-  /* transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1); */
-  /* display: block; */
-  min-height: 100vh;
-  width: 100%;
-}
-
 /* .page-leave-active,
 .page-enter-active {
   transition: transform, opacity;
@@ -109,7 +102,7 @@ body {
 @include media-breakpoint-up(sm) {
   .alloy-page {
     .inner {
-      // position: relative;
+      position: relative;
     }
   }
 }
@@ -168,6 +161,7 @@ body {
   .component-Progress {
     display: block;
     max-width: 300px;
+    left: -15%;
 
     > * {
       flex-grow: auto;
@@ -230,7 +224,7 @@ body {
     max-width: 300px;
     transform: translateY(-50%);
     top: 50%;
-    right: 0;
+    right: -15%;
     left: auto;
     bottom: auto;
     display: block;

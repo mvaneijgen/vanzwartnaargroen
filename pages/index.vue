@@ -27,6 +27,15 @@ export default {
   components: {
     Map,
   },
+  mounted() {
+    if (process.browser) {
+    window.addEventListener('wheel', function(e) {
+
+       this.$nuxt.$router.push('/start');
+    });
+    }
+    
+  }
 };
 </script>
 

@@ -69,3 +69,78 @@ progress[value]::-webkit-progress-value {
 //------------------------------------------------------//
 // END Progress bar
 //------------------------------------------------------//
+//------------------------------------------------------//
+// Range input
+//------------------------------------------------------//
+.alloy-input-range {
+  position: relative;
+  .alloy-background {
+    pointer-events: none;
+    width: 100%;
+
+    img {
+      width: 100%;
+    }
+  }
+  .alloy-overlay {
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    span {
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: 900;
+      width: 100px;
+      height: 100px;
+
+      &:last-child {
+        left: auto;
+        right: 0;
+      }
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}
+input[type="range"] {
+  position: absolute;
+  position: absolute;
+  left: 50%;
+  top: 47%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  -webkit-appearance: none;
+  margin: 10px 0;
+  margin: 0;
+}
+input[type="range"]::-webkit-slider-runnable-track {
+  cursor: pointer;
+  height: 1px;
+  position: relative;
+  top: 5%;
+  margin: 0;
+}
+input[type="range"]::-webkit-slider-thumb {
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  background-color: $brand-one;
+  cursor: pointer;
+  -webkit-appearance: none;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+input[type="range"]:focus {
+  outline: none;
+}
+//------------------------------------------------------//
+// END Range input
+//------------------------------------------------------//
