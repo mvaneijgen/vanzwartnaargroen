@@ -27,55 +27,7 @@ body {
 //------------------------------------------------------//
 // Page transtions
 //------------------------------------------------------//
-/* .page-leave-active,
-.page-enter-active {
-  transition: transform, opacity;
-  transition-duration: 600ms;
-  transition-timing-function: ease-in;
-  overflow: hidden;
-}
-.page-leave-active {
-  transition-timing-function: ease-out;
-}
-.page-enter,
-.page-leave-active {
-  opacity: 0;
-  transform: scale(4);
-}
-.page-leave,
-.page-enter-active {
-  opacity: 1;
-  transform: scale(0);
-} */
 
-.page-enter-active {
-  animation: acrossIn 0.4s ease-out both;
-  overflow: hidden;
-}
-.page-leave-active {
-  animation: acrossOut 0.6s ease-in both;
-  overflow: hidden;
-}
-@keyframes acrossIn {
-  0% {
-    transform: scale(0);
-    /* transform: translate3d(-100%, 0, 0); */
-  }
-  100% {
-    transform: scale(1);
-    /* transform: translate3d(0, 0, 0); */
-  }
-}
-@keyframes acrossOut {
-  0% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  100% {
-    transform: scale(4);
-    opacity: 0;
-  }
-}
 //-----------------------------------------------------//
 // END Page transtions
 //------------------------------------------------------//
@@ -219,40 +171,40 @@ body {
     margin-left: 4px;
   }
 }
-@include media-breakpoint-up(sm) {
-  .component-RenewableEnergy {
-    max-width: 300px;
-    transform: translateY(-50%);
-    top: 50%;
-    right: -15%;
-    left: auto;
-    bottom: auto;
-    display: block;
+// @include media-breakpoint-up(sm) {
+//   .component-RenewableEnergy {
+//     max-width: 300px;
+//     transform: translateY(-50%);
+//     top: 50%;
+//     right: -15%;
+//     left: auto;
+//     bottom: auto;
+//     display: block;
 
-    > * {
-      flex-grow: 1;
-      // padding: $base-margin;
-    }
+//     > * {
+//       flex-grow: 1;
+//       // padding: $base-margin;
+//     }
 
-    .alloy-counter {
-      display: block;
+//     .alloy-counter {
+//       display: block;
 
-      > * {
-        display: block;
-        flex-grow: auto;
-        border-radius: 50%;
+//       > * {
+//         display: block;
+//         flex-grow: auto;
+//         border-radius: 50%;
 
-        &:last-of-type {
-          margin-left: 4px;
-          flex-grow: auto;
-        }
-      }
-    }
-    .alloy-solarPanels {
-      margin-left: 4px;
-    }
-  }
-}
+//         &:last-of-type {
+//           margin-left: 4px;
+//           flex-grow: auto;
+//         }
+//       }
+//     }
+//     .alloy-solarPanels {
+//       margin-left: 4px;
+//     }
+//   }
+// }
 //------------------------------------------------------//
 // END 🌬 & ☀️ Renewable ⚡️ Energy
 //------------------------------------------------------//
@@ -262,7 +214,7 @@ body {
 //------------------------------------------------------//
 .component-PowerCategory {
   top: 50%;
-  transform: translateY(-50%) translateX(25%);
+  transform: translateY(-40%) translateX(25%);
   right: 0;
 
   button {
@@ -270,21 +222,21 @@ body {
     text-align: right;
   }
 }
-@include media-breakpoint-up(sm) {
-  .component-PowerCategory {
-    top: auto;
-    bottom: 0;
-    left: 50%;
-    right: auto;
-    transform: translateX(-50%) translateY(0);
+// @include media-breakpoint-up(sm) {
+//   .component-PowerCategory {
+//     top: auto;
+//     bottom: 0;
+//     left: 50%;
+//     right: auto;
+//     transform: translateX(-50%) translateY(0);
 
-    button {
-      display: inline-block !important;
-      // text-align: right;
-      margin: $base-margin/3;
-    }
-  }
-}
+//     button {
+//       display: inline-block !important;
+//       // text-align: right;
+//       margin: $base-margin/3;
+//     }
+//   }
+// }
 //------------------------------------------------------//
 // END 🏭 Power plants
 //------------------------------------------------------//
