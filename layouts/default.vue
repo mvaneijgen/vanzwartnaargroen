@@ -1,5 +1,6 @@
 <template>
   <div>
+    <div class="alloy-body-overlay" :style="{ opacity: this.$store.getters.backgroundOpacity }"></div>
     <nuxt/>
   </div>
 </template>

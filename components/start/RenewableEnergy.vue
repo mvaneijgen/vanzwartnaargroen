@@ -65,19 +65,24 @@ export default {
   },
   mounted() {
     // 🌬 Wind Turbines logic
-    document.querySelector('#range-windTurbines').addEventListener("mousedown", function(){
+    const windTurbines = document.querySelector('#range-windTurbines');
+
+    windTurbines.addEventListener("mousedown", function(){
       console.log(this);
     });
-    document.querySelector('#range-windTurbines').addEventListener("mouseup", function(){
+    windTurbines.addEventListener("mouseup", function(){
       this.value = 1;
     });
 
     // ☀️ Solar Panels logic
-    document.querySelector('#range-solarPanels').addEventListener("mousedown", function(){
+    const solarPanels = document.querySelector('#range-solarPanels');
+
+    console.warn(solarPanels);
+    solarPanels.addEventListener("mousedown", function(){
       console.log(this);
     });
 
-    document.querySelector('#range-solarPanels').addEventListener("mouseup", function(){
+    solarPanels.addEventListener("mouseup", function(){
       this.value = 1;
     });
   },

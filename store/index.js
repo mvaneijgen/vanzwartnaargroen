@@ -152,10 +152,30 @@ const createStore = () => {
         ].reduce((a, b) => a + b, 0);
 
         return Math.floor(arrayEnergyAllMax);
-      }
+      },
       // ---------------------------------------------------------------------- //
       // END 🔢  Calculate & combine everything
       // ---------------------------------------------------------------------- //
+
+      //------------------------------------------------------//
+      // 🎨 Calculate background dark opacity based on powerStationEnergyMax
+      //------------------------------------------------------//
+      backgroundOpacity: (state, getters) => {
+        getters.powerStationEnergyMax;
+
+        function map(num, in_min, in_max, out_min, out_max) {
+          return (
+            ((num - in_min) * (out_max - out_min)) / (in_max - in_min) + out_min
+          );
+        }
+
+        var num = getters.powerStationEnergyCurrent;
+
+        return map(num, 0, getters.powerStationEnergyMax, 0, 1.2);
+      }
+      //------------------------------------------------------//
+      // END 🎨 Calculate background dark opacity based on powerStationEnergyMax
+      //------------------------------------------------------//
     },
     mutations: {
       // 🌬 Update wind turbines
