@@ -161,17 +161,15 @@ const createStore = () => {
       // 🎨 Calculate background dark opacity based on powerStationEnergyMax
       //------------------------------------------------------//
       backgroundOpacity: (state, getters) => {
-        getters.powerStationEnergyMax;
-
         function map(num, in_min, in_max, out_min, out_max) {
           return (
             ((num - in_min) * (out_max - out_min)) / (in_max - in_min) + out_min
           );
         }
 
-        var num = getters.powerStationEnergyCurrent;
+        var num = getters.powerStationCo2Current;
 
-        return map(num, 0, getters.powerStationEnergyMax, 0, 1.2);
+        return map(num, 0, getters.powerStationCo2Max, 0, 1.2);
       }
       //------------------------------------------------------//
       // END 🎨 Calculate background dark opacity based on powerStationEnergyMax

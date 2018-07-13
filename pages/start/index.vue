@@ -2,9 +2,9 @@
   <section class="alloy-page">
     <div class="inner">
       <Progress/>
-      <RenewableEnergy />
+      <RenewableEnergy/>
       <PowerCategory />
-      <Map/>
+      <Map />
 
       <!-- <button @click="calcTotal">calcTotal</button> -->
       <!-- <pre>{{ this.$store.state.powerStations }}</pre> -->
