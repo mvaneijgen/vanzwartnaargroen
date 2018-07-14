@@ -21,13 +21,16 @@ export default {
     return {
       title: 'Desertec',
       desertecShow: false,
+      initWind: 0,
+      initSolar: 0,
     }
   }, // End data
   computed: {
-    // mix the getters into computed with object spread operator
-    ...mapGetters([
-
-    ]),
+      ...mapGetters([
+    // 🚗 CO₂ production
+    'windProductionCurrent',
+    'solarProductionCurrent',
+  ]),
     desertecOn: {
       get () {
         return this.$store.state.desertecOn
@@ -37,22 +40,23 @@ export default {
       }
     }
   },
-  // methods: {},
-  // watch: {},
-
-
-  // // Lifecycle hook. Check for more https://vuejs.org/v2/guide/instance.html or https://vuejs.org/v2/api/#Options-Lifecycle-Hooks
-  // beforeCreate() {}, 
-  // created() {}, // Each time the app is created (once?)
-  // beforeMount() {}, 
-  // mounted() {}, // Be sure all elements are drawn. Here you can use normal Javascript to interact with your page
-  // beforeUpdate() {}, 
-  // update() {}, 
-  // activated() {},
-  // deactivated() {},
-  // beforeDestroy() {},
-  // destroyed() {},
-  // errorCaptured() {},
+  watch: {
+    windProductionCurrent: function() {
+      console.warn(this.windProductionCurrent + ' ' + this.initWind);
+      if(this.windProductionCurrent >= this.initWind * 1.3) {
+        this.desertecShow = true;
+      }
+    },
+    solarProductionCurrent: function() {
+      if(this.solarProductionCurrent >= this.initSolar * 1.3) {
+        this.desertecShow = true;
+      }
+    }
+  },
+  created() {
+    this.initWind = this.$store.getters.windProductionCurrent;
+    this.initSolar = this.$store.getters.solarProductionCurrent;
+  },
 }
 </script>
 
@@ -167,12 +171,12 @@ label:hover:before {
 }
 .slide-from-right-enter,
 .slide-from-right-leave-to {
-  opacity: 1;
+  opacity: 0;
   transform: translateX(300px);
 }
 .slide-from-right-enter-to,
 .slide-from-right-leave {
-  opacity: 0;
+  opacity: 1;
   transform: translateX(0);
 }
 </style>

@@ -97,9 +97,9 @@ export default {
 
   .alloy-zoom-out {
     .component-Map {
-      transform: scale(1);
+      transform: scale(1.8);
       @include media-breakpoint-up(sm) {
-        transform: scale(1.8);
+        transform: scale(1);
       }
     }
   }

@@ -1,15 +1,17 @@
 <template>
   <div class="alloy-range alloy-range-wind">
-    <div class="inner" :data-amount="(windState.amount > initWind + 1500) ? 1000 : 
-                                     (windState.amount > initWind + 150) ? 100 : 
-                                     (windState.amount > initWind + 10) ? 10 : 1">
+    <div class="inner" :data-amount="
+                              //(windState.amount > initWind + 1500) ? 1000 : 
+                              (windState.amount > initWind + 150) ? 100 : 
+                              (windState.amount > initWind + 10) ? 10 : 1">
       <div class="alloy-note">
         <transition mode="out-in">
-          <div class="inner" v-if="windState.amount > initWind + 1500 && windState.amount < initWind + 15000 || 
+          <div class="inner" v-if="
+                    // windState.amount > initWind + 1500 && windState.amount < initWind + 15000 || 
                      windState.amount > initWind + 150 && windState.amount < initWind + 1000 || 
                      windState.amount > initWind + 10 && windState.amount < initWind + 100">
             <strong>Dat schiet niet op!</strong>
-            Plaats vanaf nu {{ (windState.amount > initWind + 1500) ? 1000 : (windState.amount > initWind + 150) ? 100 : (windState.amount > initWind + 10) ? 10 : 1 }} zonnepanelen bij
+            Plaats vanaf nu {{ (windState.amount > initWind + 150) ? 100 : (windState.amount > initWind + 10) ? 10 : 1 }} zonnepanelen bij
           </div>
         </transition>
       </div>
@@ -19,7 +21,7 @@
           <strong>{{ windState.amount }}</strong>
         </div>
       </div>
-      <svg class="alloy-slider" xmlns="http://www.w3.org/2000/svg" width="200" height="100" viewBox="0 0 200 100">
+      <svg class="alloy-slider" @click.self="dragMePls" xmlns="http://www.w3.org/2000/svg" width="200" height="100" viewBox="0 0 200 100">
         <defs>
           <filter id="goo" color-interpolation-filters="sRGB">
             <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur" />
@@ -63,6 +65,12 @@ export default {
       'incrementWindTurbines',
       'decrementWindTurbines',
     ]),
+    dragMePls: function(event) {
+      event.target.classList.add('dragMePls');
+      window.setTimeout(function(){
+        event.target.classList.remove('dragMePls');
+      }, 1100);
+    }
   },
   created() {
     this.initWind = this.$store.state.windTurbines.amount;

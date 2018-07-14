@@ -3,3 +3,401 @@
     display: block;
   }
 }
+//------------------------------------------------------//
+// 📱 UI elements
+//------------------------------------------------------//
+.alloy-ui {
+  position: absolute;
+  z-index: 100;
+
+  button {
+    font-size: 30px;
+    line-height: 1em;
+    font-weight: 900;
+  }
+  h3,
+  .alloy-amount {
+    font-size: 1rem;
+    font-weight: 800;
+  }
+  .alloy-legend {
+    position: absolute;
+    font-size: 0.6rem;
+    line-height: 1em;
+    // font-size: 0.6rem;
+    font-weight: 400;
+    left: 0;
+    bottom: -5px;
+    text-align: right;
+    display: block;
+    // width: 100px;
+    color: $brand-dark;
+    background-color: $brand-one;
+    padding: 3px;
+  }
+}
+@include media-breakpoint-up(sm) {
+  .alloy-ui {
+    h3,
+    .alloy-amount {
+      margin-bottom: 0;
+      font-size: 1.6rem;
+    }
+  }
+}
+//------------------------------------------------------//
+// //////////////////////////____________ Progress bars
+//------------------------------------------------------//
+.component-Progress {
+  top: 0;
+  left: 0;
+  display: flex;
+  width: 100%;
+  > * {
+    flex-grow: 1;
+    width: 50%;
+    padding: $base-margin;
+  }
+
+  .logo {
+    display: none;
+  }
+  .alloy-progressbar {
+    position: relative;
+    label {
+      position: absolute;
+      font-size: 0.6rem;
+      left: 10px;
+      top: 5px;
+      text-shadow: 1px 1px 2px rgba($brand-dark, $base-alpha/2);
+    }
+  }
+}
+@include media-breakpoint-up(sm) {
+  .component-Progress {
+    display: block;
+    max-width: 300px;
+    left: -15%;
+    .logo {
+      display: block;
+    }
+    > * {
+      flex-grow: auto;
+      width: 100%;
+      padding: $base-margin;
+    }
+    .alloy-progressbar {
+      // position: relative;
+      label {
+        position: relative;
+        font-size: 1rem;
+        display: block;
+        // margin-bottom: $base-margin/3;
+        left: auto;
+        top: auto;
+        text-shadow: 0;
+      }
+    }
+  }
+}
+//------------------------------------------------------//
+// END //////////////////////____________ Progress bars
+//------------------------------------------------------//
+
+//------------------------------------------------------//
+// 🌬 & ☀️ Renewable ⚡️ Energy
+//------------------------------------------------------//
+.component-RenewableEnergy {
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-around;
+
+  > * {
+    flex-grow: 1;
+    max-width: 250px;
+    // padding: $base-margin;
+  }
+  .alloy-amount {
+    background-color: rgba($brand-light, 0.3);
+    padding: $base-margin;
+    line-height: 1em;
+    margin-bottom: 4px;
+  }
+  .alloy-counter {
+    display: flex;
+    > * {
+      flex-grow: 1;
+      &:last-of-type {
+        margin-left: 4px;
+        flex-grow: 2;
+      }
+    }
+  }
+  .alloy-solarPanels {
+    margin-left: 4px;
+  }
+}
+// @include media-breakpoint-up(sm) {
+//   .component-RenewableEnergy {
+//     max-width: 300px;
+//     transform: translateY(-50%);
+//     top: 50%;
+//     right: -15%;
+//     left: auto;
+//     bottom: auto;
+//     display: block;
+
+//     > * {
+//       flex-grow: 1;
+//       // padding: $base-margin;
+//     }
+
+//     .alloy-counter {
+//       display: block;
+
+//       > * {
+//         display: block;
+//         flex-grow: auto;
+//         border-radius: 50%;
+
+//         &:last-of-type {
+//           margin-left: 4px;
+//           flex-grow: auto;
+//         }
+//       }
+//     }
+//     .alloy-solarPanels {
+//       margin-left: 4px;
+//     }
+//   }
+// }
+
+//------------------------------------------------------//
+// Gooy range slider
+//------------------------------------------------------//
+.alloy-range {
+  color: $brand-dark;
+
+  text-align: center;
+
+  user-select: none;
+  position: relative;
+
+  font-size: 0.8rem;
+  transform: scale(0.8);
+  @include media-breakpoint-up(sm) {
+    font-size: 1rem;
+    transform: scale(1);
+  }
+
+  .alloy-popup {
+    text-align: left;
+    background-color: $brand-light;
+    position: absolute;
+    left: 50%;
+    top: -80px;
+    transform: translatex(-50%);
+    width: 100%;
+    border-radius: 5px;
+    padding: $base-margin;
+
+    span {
+      margin-left: $base-margin/3;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -$base-margin;
+      left: 50%;
+      transform: translatex(-50%);
+      width: 0;
+      height: 0;
+      border-left: $base-margin solid transparent;
+      border-right: $base-margin solid transparent;
+
+      border-top: $base-margin solid $brand-light;
+    }
+  }
+  .alloy-note .inner {
+    text-align: left;
+
+    background-color: $brand-light;
+    position: absolute;
+    left: 50%;
+    top: -220px;
+    transform: translatex(-50%);
+    width: 100%;
+    border-radius: 5px;
+    padding: $base-margin;
+
+    // &::after {
+    //   content: "";
+    //   position: absolute;
+    //   top: -$base-margin;
+    //   left: 50%;
+    //   transform: translatex(-50%);
+    //   width: 0;
+    //   height: 0;
+    //   border-left: $base-margin solid transparent;
+    //   border-right: $base-margin solid transparent;
+
+    //   border-bottom: $base-margin solid $brand-light;
+    // }
+  }
+  .alloy-slider {
+    // background-color: rgba($brand-light, 0.3);
+    .goo* {
+      fill: $brand-one;
+    }
+    .icons {
+      pointer-events: none;
+      * {
+        fill: rgba($brand-light, 0.4);
+        transition: fill;
+        transition-duration: 600ms;
+        transition-timing-function: ease;
+      }
+    }
+  }
+  .alloy-draggable {
+    cursor: pointer;
+    transform: translatex(0);
+
+    // Transition
+    transition: transform;
+    transition-duration: 300ms;
+    transition-timing-function: ease;
+    transition-timing-function: cubic-bezier(0.5, -0.5, 0.5, 1.5);
+    transform-origin: center;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+  .minus {
+    .alloy-draggable {
+      transform: translatex(-28%);
+      transform: translatex(-60px);
+    }
+    .icon-minus {
+      fill: $brand-dark;
+    }
+  }
+  .plus {
+    .alloy-draggable {
+      transform: translatex(28%);
+      transform: translatex(60px);
+    }
+    .icon-plus {
+      fill: $brand-dark !important;
+    }
+  }
+  .dragMe {
+    // Animation
+    animation-name: dragMe;
+    animation-duration: 300ms;
+    animation-delay: 300ms;
+    animation-timing-function: ease-out; // find more fancy onece over at https://matthewlein.com/tools/ceaser ease, ease-in, ease-out, ease-in-out, linear, step-start, step-end;
+    animation-direction: alternate; // normal, reverse, alternate, alternate-reverse
+    animation-iteration-count: infinite; // infinite or number
+    animation-fill-mode: forwards; // none, forwards, backwards, both
+    animation-play-state: running; // running, paused
+  }
+  @keyframes dragMe {
+    0% {
+      transform: translatex(0);
+    }
+    100% {
+      transform: translatex(20px);
+    }
+  }
+}
+.dragMePls {
+  .alloy-draggable {
+    animation-name: shake;
+    animation-duration: 1s;
+    animation-delay: 0s;
+    animation-timing-function: ease-out; // find more fancy onece over at https://matthewlein.com/tools/ceaser ease, ease-in, ease-out, ease-in-out, linear, step-start, step-end;
+    animation-direction: alternate; // normal, reverse, alternate, alternate-reverse
+    animation-iteration-count: 1; // infinite or number
+    animation-fill-mode: forwards; // none, forwards, backwards, both
+    animation-play-state: running; // running, paused
+  }
+}
+@keyframes shake {
+  from,
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translate3d(-5px, 0, 0);
+  }
+
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translate3d(5px, 0, 0);
+  }
+}
+//------------------------------------------------------//
+// END Gooy range slider
+//------------------------------------------------------//
+
+//------------------------------------------------------//
+// END 🌬 & ☀️ Renewable ⚡️ Energy
+//------------------------------------------------------//
+
+//------------------------------------------------------//
+// 🏭 Power plants
+//------------------------------------------------------//
+.component-PowerCategory {
+  top: 50%;
+  transform: translateY(-50%) translateX(25%);
+  @include media-breakpoint-up(sm) {
+    transform: translateY(-40%) translateX(25%);
+  }
+  right: 0;
+
+  button {
+    display: block !important;
+    text-align: right;
+  }
+}
+// @include media-breakpoint-up(sm) {
+//   .component-PowerCategory {
+//     top: auto;
+//     bottom: 0;
+//     left: 50%;
+//     right: auto;
+//     transform: translateX(-50%) translateY(0);
+
+//     button {
+//       display: inline-block !important;
+//       // text-align: right;
+//       margin: $base-margin/3;
+//     }
+//   }
+// }
+//------------------------------------------------------//
+// END 🏭 Power plants
+//------------------------------------------------------//
+.component-Map {
+  transform: scale(1.8);
+}
+@include media-breakpoint-up(sm) {
+  .component-Map {
+    transform: scale(1);
+  }
+}
+//------------------------------------------------------//
+// END 📱 UI elements
+//------------------------------------------------------//

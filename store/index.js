@@ -38,7 +38,7 @@ const createStore = () => {
         // Convertcal mW to kW
         // const convert = calcAllEnergy * 1000;
         // Increase ⚡ energy production by 50%
-        const calcAllEnergyIncreased = (calcAllEnergy / 100) * 105 + 3000;
+        const calcAllEnergyIncreased = (calcAllEnergy / 100) * 105 + 5000;
         // ⚡ Set state
         return calcAllEnergyIncreased;
       },

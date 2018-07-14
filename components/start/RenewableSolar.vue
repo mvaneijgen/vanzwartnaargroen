@@ -1,15 +1,17 @@
 <template>
   <div class="alloy-range alloy-range-solar">
-    <div class="inner" :data-amount="(solarState.amount > initWind + 1500) ? 1000 : 
-                                     (solarState.amount > initWind + 150) ? 100 : 
-                                     (solarState.amount > initWind + 10) ? 10 : 1">
+    <div class="inner" :data-amount="
+    // (solarState.amount > initSolar + 1500) ? 1000 : 
+                                     (solarState.amount > initSolar + 150) ? 100 : 
+                                     (solarState.amount > initSolar + 10) ? 10 : 1">
       <div class="alloy-note">
         <transition mode="out-in">
-          <div class="inner" v-if="solarState.amount > initWind + 1500 && solarState.amount < initWind + 15000 || 
-                     solarState.amount > initWind + 150 && solarState.amount < initWind + 1000 || 
-                     solarState.amount > initWind + 10 && solarState.amount < initWind + 100">
+          <div class="inner" v-if="
+                    // solarState.amount > initSolar + 1500 && solarState.amount < initSolar + 15000 || 
+                    solarState.amount > initSolar + 150 && solarState.amount < initSolar + 1000 || 
+                    solarState.amount > initSolar + 10 && solarState.amount < initSolar + 100">
             <strong>Dat schiet niet op!</strong>
-            Plaats vanaf nu {{ (solarState.amount > initWind + 1500) ? 1000 : (solarState.amount > initWind + 150) ? 100 : (solarState.amount > initWind + 10) ? 10 : 1 }} zonnepanelen bij
+            Plaats vanaf nu {{ (solarState.amount > initSolar + 150) ? 100 : (solarState.amount > initSolar + 10) ? 10 : 1 }} zonnepanelen bij
           </div>
         </transition>
       </div>
@@ -19,7 +21,7 @@
           <strong>{{ solarState.amount }}</strong>
         </div>
       </div>
-      <svg class="alloy-slider" xmlns="http://www.w3.org/2000/svg" width="200" height="100" viewBox="0 0 200 100">
+      <svg class="alloy-slider" @click.self="dragMePls" xmlns="http://www.w3.org/2000/svg" width="200" height="100" viewBox="0 0 200 100">
         <defs>
           <filter id="goo" color-interpolation-filters="sRGB">
             <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur" />
@@ -50,7 +52,7 @@ export default {
   name: 'RenewableWind',
   data() {
     return {
-      initWind: 0,
+      initSolar: 0,
     }
   }, // End data
   computed: {
@@ -63,9 +65,15 @@ export default {
       'incrementSolarPanels',
       'decrementSolarPanels',
     ]),
+    dragMePls: function(event) {
+      event.target.classList.add('dragMePls');
+      window.setTimeout(function(){
+        event.target.classList.remove('dragMePls');
+      }, 1100);
+    }
   },
   created() {
-    this.initWind = this.$store.state.solarPanels.amount;
+    this.initSolar = this.$store.state.solarPanels.amount;
   },
   mounted() {
     const container = document.querySelector(".alloy-range-solar .inner");
