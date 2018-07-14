@@ -98,6 +98,9 @@ export default {
   .alloy-zoom-out {
     .component-Map {
       transform: scale(1);
+      @include media-breakpoint-up(sm) {
+        transform: scale(1.8);
+      }
     }
   }
 

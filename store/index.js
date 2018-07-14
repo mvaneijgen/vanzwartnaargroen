@@ -15,9 +15,11 @@ const createStore = () => {
 
       // ☀️ Solar panels
       solarPanels: {
-        amount: 21582,
-        production: 0.0192 // One ☀️ Solar panel in kWh
-      }
+        amount: 2158,
+        production: 0.1 // One ☀️ Solar panel in kWh
+      },
+      // ∞ ⚡️ Desertec
+      desertecOn: false
     },
     getters: {
       // ---------------------------------------------------------------------- //
@@ -196,9 +198,6 @@ const createStore = () => {
       togglePowerStationCat: (state, object) => {
         const allPowerStations = state.powerStations;
 
-        console.log(object.fuel);
-        console.log(object.toggle);
-
         if (object.toggle === "off") {
           allPowerStations.forEach(element => {
             if (element.brandstof === object.fuel) {
@@ -212,7 +211,16 @@ const createStore = () => {
             }
           });
         }
+      },
+      //------------------------------------------------------//
+      // Set ∞ ⚡️ Desertec
+      //------------------------------------------------------//
+      desertecUpdate: (state, payload) => {
+        state.desertecOn = payload;
       }
+      //------------------------------------------------------//
+      // END Set ∞ ⚡️ Desertec
+      //------------------------------------------------------//
     },
     actions: {
       // ---------------------------------------------------------------------- //

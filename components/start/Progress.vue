@@ -9,13 +9,15 @@
       <p>powerStationEnergyCurrent: {{ powerStationEnergyCurrent }}</p>
       <p>windProductionCurrent: {{ windProductionCurrent }}</p>
       <p>solarProductionCurrent: {{ solarProductionCurrent }}</p> -->
-      <h3>{{ energyProductionCalcAllCurrent }}
-        <span>kWh</span>
+      <h3>
+        <span v-if="!this.$store.state.desertecOn">{{ energyProductionCalcAllCurrent }}</span>
+        <span class="text-small" v-else>Ruim voldoende</span>
+        <span> kWh</span>
       </h3>
       <div class="alloy-progressbar">
         <label for="Energieopwekking">Energieopwekking</label>
 
-        <progress id="Energieopwekking" name="Energieopwekking" :max="powerStationEnergyMax" :value="energyProductionCalcAllCurrent">
+        <progress id="Energieopwekking" name="Energieopwekking" :class="{ desertecOn: this.$store.state.desertecOn }" :max="powerStationEnergyMax" :value="isDesertecEnergy">
           {{ energyProductionCalcAllCurrent }} current / {{ powerStationEnergyMax }} max
         </progress>
       </div>
@@ -67,18 +69,15 @@ export default {
       // ⚡️ Energy combined current 
       'energyProductionCalcAllCurrent'
     ]),
-    // energyProductionCalcAllCurrent: function() {
-    //     // ⚡️ Energy Max
-    //     const arrayEnergyAllMax = [
-    //       this.powerStationEnergyCurrent,
-    //       this.windProductionCurrent,
-    //       this.solarProductionCurrent
-    //     ].reduce((a, b) => a + b, 0);
-
-    //     return arrayEnergyAllMax;
-    // }
+    isDesertecEnergy: function() {
+      if(!this.$store.state.desertecOn) {
+        return this.energyProductionCalcAllCurrent;
+      } else {
+        return this.powerStationEnergyMax;
+      }
+    }
   },
-  // methods: {},
+  methods: {},
   // watch: {},
 
   // // Live cicle hook. Check for more https://vuejs.org/v2/api/
@@ -101,6 +100,15 @@ h3 {
       bottom: -5px;
       right: -10px;
     }
+  }
+}
+progress {
+  transition: width;
+  transition-duration: 300ms;
+  transition-timing-function: ease;
+
+  &.desertecOn {
+    width: 120%;
   }
 }
 </style>

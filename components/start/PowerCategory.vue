@@ -3,24 +3,33 @@
     <div class="innner">
       <button @click="toggleOff" data-toggle="off" data-fuel="Kolen">
         <img src="@/assets/images/ui/coal.svg" alt="">
+        <span class="alloy-legend">Kolen</span>
       </button>
       <button @click="toggleOff" data-toggle="off" data-fuel="Gas">
         <img src="@/assets/images/ui/gas.svg" alt="">
+        <span class="alloy-legend">Gas</span>
       </button>
       <button @click="toggleOff" data-toggle="off" data-fuel="Nucleair">
         <img src="@/assets/images/ui/nuclear.svg" alt="">
+        <span class="alloy-legend">Nucliear</span>
       </button>
-
+      <Desertec />
     </div>
   </div>
 </template>
 
 <script>
+import Desertec from '@/components/start/Desertec.vue';
+
 import { mapMutations } from 'vuex';
 
 export default {
   // props: [],
   name: 'PowerCategory',
+  components: {
+     Desertec,
+  },
+
   data() {
     return {
       title: 'PowerCategory',
@@ -71,9 +80,19 @@ button {
   border-radius: 50%;
   background-color: $brand-dark;
   margin-bottom: $base-margin;
+  position: relative;
 
   img {
     pointer-events: none;
+    transition: transform;
+    transition-duration: 300ms;
+    transition-timing-function: ease;
+  }
+
+  &:hover {
+    img {
+      transform: scale(1.1);
+    }
   }
 }
 </style>
