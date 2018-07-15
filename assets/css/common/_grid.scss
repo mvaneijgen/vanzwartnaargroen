@@ -20,6 +20,7 @@ body {
   );
   background: linear-gradient(to bottom, #005893 0%, #005893 20%, #72f2ff 100%);
   background-repeat: no-repeat;
+  min-height: 100vh;
 }
 
 .alloy-body-overlay {
@@ -54,7 +55,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  min-height: calc(100vh - 60px);
   width: 100%;
   position: relative;
 
