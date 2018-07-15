@@ -4,17 +4,19 @@
                               //(windState.amount > initWind + 1500) ? 1000 : 
                               (windState.amount > initWind + 150) ? 100 : 
                               (windState.amount > initWind + 10) ? 10 : 1">
-      <div class="alloy-note">
-        <transition mode="out-in">
-          <div class="inner" v-if="
+      <transition name="ui-slide" mode="out-in">
+
+        <div class="alloy-note" v-if="
                     // windState.amount > initWind + 1500 && windState.amount < initWind + 15000 || 
                      windState.amount > initWind + 150 && windState.amount < initWind + 1000 || 
                      windState.amount > initWind + 10 && windState.amount < initWind + 100">
+          <div class="inner">
             <strong>Dat schiet niet op!</strong>
             Plaats vanaf nu {{ (windState.amount > initWind + 150) ? 100 : (windState.amount > initWind + 10) ? 10 : 1 }} zonnepanelen bij
           </div>
-        </transition>
-      </div>
+        </div>
+      </transition>
+
       <div class="alloy-popup">
         <div class="inner-content">
           <span>Windmolens: </span>
@@ -29,7 +31,7 @@
           </filter>
         </defs>
 
-        <g class="goo" fill="none" fill-rule="evenodd" >
+        <g class="goo" fill="none" fill-rule="evenodd">
 
           <circle cx="100" cy="50" r="30" fill="#F8E71C" />
           <circle cx="100" cy="50" r="40" fill="#F8E71C" class="alloy-draggable" />

@@ -4,17 +4,19 @@
     // (solarState.amount > initSolar + 1500) ? 1000 : 
                                      (solarState.amount > initSolar + 150) ? 100 : 
                                      (solarState.amount > initSolar + 10) ? 10 : 1">
-      <div class="alloy-note">
-        <transition mode="out-in">
-          <div class="inner" v-if="
+      <transition name="ui-slide" mode="out-in">
+
+        <div class="alloy-note" v-if="
                     // solarState.amount > initSolar + 1500 && solarState.amount < initSolar + 15000 || 
                     solarState.amount > initSolar + 150 && solarState.amount < initSolar + 1000 || 
                     solarState.amount > initSolar + 10 && solarState.amount < initSolar + 100">
+          <div class="inner">
             <strong>Dat schiet niet op!</strong>
             Plaats vanaf nu {{ (solarState.amount > initSolar + 150) ? 100 : (solarState.amount > initSolar + 10) ? 10 : 1 }} zonnepanelen bij
           </div>
-        </transition>
-      </div>
+        </div>
+      </transition>
+
       <div class="alloy-popup">
         <div class="inner-content">
           <span>Windmolens: </span>

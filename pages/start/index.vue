@@ -56,19 +56,4 @@ watch: {
 .alloy-page {
   overflow: hidden;
 }
-.ui-slide-enter-active,
-.ui-slide-leave-active {
-  transition: transform, opacity;
-  transition-duration: 1000ms;
-  transition-timing-function: cubic-bezier(0.87, -0.41, 0.19, 1.44);
-}
-.ui-slide-enter,
-.ui-slide-leave-to {
-  opacity: 1;
-  transform: translateY(300px);
-}
-.ui-slide-enter-to,
-.ui-slide-leave {
-  transform: translateY(0);
-}
 </style>
