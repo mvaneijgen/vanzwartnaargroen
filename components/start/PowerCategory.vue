@@ -87,6 +87,11 @@ button {
     transition: transform;
     transition-duration: 300ms;
     transition-timing-function: ease;
+    width: 45px;
+    height: auto;
+    @include media-breakpoint-up(sm) {
+      width: 60px;
+    }
   }
 
   &:hover {
