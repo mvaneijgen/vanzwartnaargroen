@@ -32,7 +32,7 @@ const createStore = () => {
           previous,
           key
         ) {
-          return previous + Number(allPowerStations[key].vermogen);
+          return previous + Number(allPowerStations[key].power);
         },
         0);
         // Convertcal mW to kW
@@ -57,7 +57,7 @@ const createStore = () => {
           previous,
           key
         ) {
-          return previous + Number(allPowerStations[key].uitstoot);
+          return previous + Number(allPowerStations[key].emissions);
         },
         0);
         // 🚗 Set state
@@ -74,14 +74,14 @@ const createStore = () => {
         const allPowerStations = state.powerStations;
 
         // FILTER
-        const result = allPowerStations.filter(item => item.enable);
+        const result = allPowerStations.filter(item => item.enabled);
 
         // Calculate total of all ⚡ power stations power stations
         const calcTotalEnableEnergy = Object.keys(result).reduce(function(
           previous,
           key
         ) {
-          return previous + Number(result[key].vermogen);
+          return previous + Number(result[key].power);
         },
         0);
         // Convertcal mW to kW
@@ -100,14 +100,14 @@ const createStore = () => {
         const allPowerStations = state.powerStations;
 
         // FILTER
-        const result = allPowerStations.filter(item => item.enable);
+        const result = allPowerStations.filter(item => item.enabled);
 
         // Calculate total of all 🚗 CO₂ of the power stations
         const calcTotalEnableCo2 = Object.keys(result).reduce(function(
           previous,
           key
         ) {
-          return previous + Number(result[key].uitstoot);
+          return previous + Number(result[key].emissions);
         },
         0);
         // 🚗 Set state
@@ -200,14 +200,14 @@ const createStore = () => {
 
         if (object.toggle === "off") {
           allPowerStations.forEach(element => {
-            if (element.brandstof === object.fuel) {
-              element.enable = false;
+            if (element.fuel === object.fuel) {
+              element.enabled = false;
             }
           });
         } else {
           allPowerStations.forEach(element => {
-            if (element.brandstof === object.fuel) {
-              element.enable = true;
+            if (element.fuel === object.fuel) {
+              element.enabled = true;
             }
           });
         }
