@@ -42,7 +42,6 @@ export default {
   },
   watch: {
     windProductionCurrent: function() {
-      console.warn(this.windProductionCurrent + ' ' + this.initWind);
       if(this.windProductionCurrent >= this.initWind * 1.3) {
         this.desertecShow = true;
       }

@@ -33,14 +33,14 @@ export default {
     Map,
   },
   mounted() {
-    if (process.browser) {
+    // if (process.browser) {
 
-      function startApp(params) {
-        this.$nuxt.$router.push('/start'); 
-      }
-      window.addEventListener('touchmove', startApp);
-      window.addEventListener('wheel', startApp);
-    }
+    //   function startApp(params) {
+    //     this.$nuxt.$router.push('/start'); 
+    //   }
+    //   window.addEventListener('touchmove', startApp);
+    //   window.addEventListener('wheel', startApp);
+    // }
     
   }
 };

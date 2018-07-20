@@ -31,7 +31,7 @@
           </filter>
         </defs>
 
-        <g class="goo" fill="none" fill-rule="evenodd">
+        <g class="goo" fill="none" fill-rule="evenodd" filter="url(#goo)">
 
           <circle cx="100" cy="50" r="30" fill="#F8E71C" />
           <circle cx="100" cy="50" r="40" fill="#F8E71C" class="alloy-draggable" />
@@ -72,7 +72,7 @@ export default {
       window.setTimeout(function(){
         event.target.classList.remove('dragMePls');
       }, 1100);
-    }
+    },
   },
   created() {
     this.initWind = this.$store.state.windTurbines.amount;

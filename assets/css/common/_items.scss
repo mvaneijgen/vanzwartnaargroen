@@ -405,3 +405,81 @@
 //------------------------------------------------------//
 // END 📱 UI elements
 //------------------------------------------------------//
+
+//------------------------------------------------------//
+// 🗺 Country map
+//------------------------------------------------------//
+.component-Map {
+  position: relative;
+
+  .centrale-icon {
+    cursor: pointer;
+    opacity: 0.4;
+    transition: opacity;
+    transition-duration: 300ms;
+    transition-timing-function: ease;
+
+    image {
+      // transform-origin: center;
+      transition: transform;
+      transition-duration: 300ms;
+      transition-timing-function: ease;
+
+      transform: scale(0.8);
+    }
+    &[data-enabled="true"] {
+      opacity: 1;
+
+      image {
+        transform: scale(1);
+      }
+    }
+  }
+}
+#randomContainer {
+  pointer-events: none;
+  z-index: 500;
+  position: absolute;
+  width: 70%;
+  height: 80%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  // background-color: rgba($brand-dark, $base-alpha/2);
+
+  .wind {
+    width: 7%;
+    height: auto;
+    position: absolute;
+    transform-origin: bottom center;
+    animation-name: pop;
+    animation-duration: 300ms;
+    animation-delay: 0s;
+    animation-timing-function: cubic-bezier(
+      0.87,
+      -0.41,
+      0.19,
+      1.44
+    ); // find more fancy onece over at https://matthewlein.com/tools/ceaser ease, ease-in, ease-out, ease-in-out, linear, step-start, step-end;
+    animation-direction: alternate; // normal, reverse, alternate, alternate-reverse
+    animation-iteration-count: 1; // infinite or number
+    animation-fill-mode: forwards; // none, forwards, backwards, both
+    animation-play-state: running; // running, paused
+  }
+  @keyframes pop {
+    from,
+    to {
+    }
+
+    0% {
+      transform: scale(0);
+    }
+
+    100% {
+      transform: scale(1);
+    }
+  }
+}
+//------------------------------------------------------//
+// END 🗺 Country map
+//------------------------------------------------------//

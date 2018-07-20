@@ -107,8 +107,8 @@ progress {
   transition-duration: 300ms;
   transition-timing-function: ease;
 
-  &.desertecOn {
-    width: 120%;
-  }
+  // &.desertecOn {
+  //   width: 120%;
+  // }
 }
 </style>
