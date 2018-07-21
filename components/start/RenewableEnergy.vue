@@ -2,9 +2,10 @@
 
   <div class="component-RenewableEnergy alloy-ui">
 
-    <RenewableWind />
-    <RenewableSolar />
-
+    <!-- <RenewableWind />
+    <RenewableSolar /> -->
+    <RenewableComponent :current-type="this.$store.state.windTurbines" />
+    <RenewableComponent :current-type="this.$store.state.solarPanels" />
   </div>
 
 </template>
@@ -12,6 +13,7 @@
 <script>
 import RenewableWind from '@/components/start/RenewableWind.vue';
 import RenewableSolar from '@/components/start/RenewableSolar.vue';
+import RenewableComponent from '@/components/start/RenewableComponent.vue';
 
 export default {
   // props: [],
@@ -23,6 +25,7 @@ export default {
   components: {
     RenewableWind,
     RenewableSolar,
+    RenewableComponent
   },
 
 }

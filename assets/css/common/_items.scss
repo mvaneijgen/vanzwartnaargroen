@@ -440,11 +440,12 @@
   pointer-events: none;
   z-index: 500;
   position: absolute;
-  width: 70%;
-  height: 80%;
+  width: 50%;
+  height: 60%;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) translateZ(0);
+  backface-visibility: hidden;
   // background-color: rgba($brand-dark, $base-alpha/2);
 
   .wind {
@@ -452,6 +453,7 @@
     height: auto;
     position: absolute;
     transform-origin: bottom center;
+    -webkit-transform: translateZ(0);
     animation-name: pop;
     animation-duration: 300ms;
     animation-delay: 0s;

@@ -9,12 +9,14 @@ const createStore = () => {
 
       // 🌬 Wind Turbines
       windTurbines: {
+        title: "Windmolens",
         amount: 2032,
         production: 1.3 // One 🌬 Wind Turbine in kWh
       },
 
       // ☀️ Solar panels
       solarPanels: {
+        title: "Zonnepanelen",
         amount: 2158,
         production: 0.1 // One ☀️ Solar panel in kWh
       },
