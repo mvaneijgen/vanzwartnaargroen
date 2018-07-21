@@ -1,6 +1,6 @@
 <template>
   <transition name="slide-from-right">
-    <div class="component-Desertec" v-if="desertecShow">
+    <div class="component-Desertec" v-if="this.$store.state.desertecShow">
       <input type="checkbox" id="checkbox-desertec" v-model="desertecOn">
       <label for="checkbox-desertec">Desertec</label>
       <div class="content">
@@ -20,7 +20,6 @@ export default {
   data() {
     return {
       title: 'Desertec',
-      desertecShow: false,
       initWind: 0,
       initSolar: 0,
     }
@@ -43,12 +42,12 @@ export default {
   watch: {
     windProductionCurrent: function() {
       if(this.windProductionCurrent >= this.initWind * 1.3) {
-        this.desertecShow = true;
+        this.$store.state.desertecShow = true;
       }
     },
     solarProductionCurrent: function() {
       if(this.solarProductionCurrent >= this.initSolar * 1.3) {
-        this.desertecShow = true;
+        $store.state.desertecShow = true;
       }
     }
   },

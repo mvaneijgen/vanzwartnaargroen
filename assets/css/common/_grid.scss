@@ -44,14 +44,8 @@ body {
   transition-duration: 300ms;
   transition-timing-function: ease;
 }
-//------------------------------------------------------//
-// Page transtions
-//------------------------------------------------------//
-
-//-----------------------------------------------------//
-// END Page transtions
-//------------------------------------------------------//
 .alloy-page {
+  // padding-top: 45px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -59,6 +53,15 @@ body {
   width: 100%;
   position: relative;
 
+  .alloy-background-image {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    opacity: 0.1;
+  }
   > .inner {
     // position: relative;
     width: 90vmin;
@@ -79,19 +82,84 @@ body {
   }
 }
 
-.ui-slide-enter-active,
-.ui-slide-leave-active {
-  transition: transform, opacity;
-  transition-duration: 1000ms;
-  transition-timing-function: cubic-bezier(0.87, -0.41, 0.19, 1.44);
+//------------------------------------------------------//
+// Pages
+//------------------------------------------------------//
+.alloy-page {
+  .alloy-featured-image {
+    height: 30vmin;
+    img {
+      // max-width: 100%;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+    }
+  }
+
+  .alloy-content {
+    background-color: rgba($brand-light, $base-alpha/2);
+    padding: $base-margin * 2;
+  }
 }
-.ui-slide-enter,
-.ui-slide-leave-to {
-  opacity: 0;
-  transform: translateY(300px);
+// Desertec page
+.alloy-page--desertec {
+  .alloy-featured-image {
+    img {
+      object-position: top;
+    }
+  }
 }
-.ui-slide-enter-to,
-.ui-slide-leave {
-  opacity: 1;
-  transform: translateY(0);
+//------------------------------------------------------//
+// END Pages
+//------------------------------------------------------//
+.component-Navigation {
+  position: relative;
+  max-width: 90vmin;
+  margin: 0 auto;
+  // z-index: 9000;
+  width: 100%;
+  opacity: 0.4;
+  transition: opacity;
+  transition-duration: 300ms;
+  transition-timing-function: ease;
+
+  text-align: right;
+
+  &:hover {
+    opacity: 1;
+  }
+  a {
+    text-transform: lowercase;
+    font-size: 0.7rem;
+    font-weight: 400;
+    padding: 0 $base-margin / 3;
+    color: $brand-light;
+
+    &.nuxt-link-exact-active {
+      color: $brand-one;
+    }
+  }
+  a,
+  .share-buttons {
+    vertical-align: middle;
+  }
+}
+
+.share-buttons {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: inline;
+
+  li {
+    display: inline;
+  }
+  a {
+    padding: 0 2px;
+  }
+  img {
+    width: 15px;
+    height: auto;
+  }
 }

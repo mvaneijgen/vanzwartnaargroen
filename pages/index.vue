@@ -1,23 +1,18 @@
 <template>
   <section class="alloy-page">
+    <img class="alloy-background-image" src="@/assets/images/idyllic.jpg" alt="">
 
-    <div class="alloy-zoom-out">
-      <Map/>
-    </div>
-
-    <div class="alloy-slide-up">
-      <div class="alloy-intro">
-        <div class="inner">
-          <div class="logo centered">
-            <img src="~/assets/images/logo.svg">
-          </div>
-          <h1>Kun jij de Nederlandse energie schoner maken?</h1>
-          <p>De Nederlandse energievoorziening is op dit moment erg afhankelijk van energiecentrales met een grote CO
-            <sub>2</sub> uitstoot. Door centrales uit te schakelen op de kaart van Nederland kun je zelf de CO
-            <sub>2</sub> uitstoot terugbrengen. Windmolens en zonnepanelen bieden een goed alternatief. Hoeveel hebben we ervan nodig om dezelfde hoeveelheid energie te leveren die nu nog wordt opgewekt door centrales?</p>
-          <div class="centered">
-            <nuxt-link to="/start" class="btn">Start direct</nuxt-link>
-          </div>
+    <div class="alloy-intro">
+      <div class="inner">
+        <div class="logo centered">
+          <img src="~/assets/images/logo.svg">
+        </div>
+        <h1>Kun jij de Nederlandse energie schoner maken?</h1>
+        <p>De Nederlandse energievoorziening is op dit moment erg afhankelijk van energiecentrales met een grote CO
+          <sub>2</sub> uitstoot. Door centrales uit te schakelen op de kaart van Nederland kun je zelf de CO
+          <sub>2</sub> uitstoot terugbrengen. Windmolens en zonnepanelen bieden een goed alternatief. Hoeveel hebben we ervan nodig om dezelfde hoeveelheid energie te leveren die nu nog wordt opgewekt door centrales?</p>
+        <div class="centered">
+          <nuxt-link to="/start" class="btn">Start direct</nuxt-link>
         </div>
       </div>
     </div>
@@ -26,23 +21,8 @@
 </template>
 
 <script>
-import Map from '@/components/start/Map.vue';
 
 export default {
-  components: {
-    Map,
-  },
-  mounted() {
-    // if (process.browser) {
-
-    //   function startApp(params) {
-    //     this.$nuxt.$router.push('/start'); 
-    //   }
-    //   window.addEventListener('touchmove', startApp);
-    //   window.addEventListener('wheel', startApp);
-    // }
-    
-  }
 };
 </script>
 
@@ -96,12 +76,6 @@ export default {
   transition-duration: $base-duration;
 
   .alloy-zoom-out {
-    .component-Map {
-      transform: scale(1.8);
-      @include media-breakpoint-up(sm) {
-        transform: scale(1);
-      }
-    }
   }
 
   .alloy-slide-up {

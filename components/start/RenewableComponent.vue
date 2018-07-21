@@ -32,11 +32,10 @@
         </defs>
 
         <g class="goo" fill="none" fill-rule="evenodd" filter="url(#goo)">
-
           <circle cx="100" cy="50" r="30" fill="#F8E71C" />
           <circle cx="100" cy="50" r="40" fill="#F8E71C" class="alloy-draggable" />
-
         </g>
+
         <g class="icons">
           <polygon class="icon-plus" fill="#000" points="161 53 161 60 155 60 155 53 148 53 148 47 155 47 155 40 161 40 161 47 168 47 168 53" />
           <rect class="icon-minus" width="6" height="20" x="39" y="40" fill="#000" transform="rotate(90 42 50)" />

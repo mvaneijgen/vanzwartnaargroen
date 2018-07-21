@@ -1,16 +1,15 @@
 <template>
-  <section class="alloy-page">
-    <div class="inner">
-      <Progress/>
-      <PowerCategory />
-      <transition name="ui-slide">
-        <RenewableEnergy v-if="renewableEnergyShow" />
-      </transition>
-      <Map />
-
-      <!-- <button @click="calcTotal">calcTotal</button> -->
-      <!-- <pre>{{ this.$store.state.powerStations }}</pre> -->
-    </div>
+  <section class="alloy-page alloy-page--start">
+    <keep-alive>
+      <div class="inner">
+        <Progress/>
+        <PowerCategory />
+        <transition name="ui-slide">
+          <RenewableEnergy v-if="this.$store.state.renewableEnergyShow" />
+        </transition>
+        <Map />
+      </div>
+    </keep-alive>
   </section>
 </template>
 
@@ -31,7 +30,7 @@ export default {
 },
 data() {
   return {
-    renewableEnergyShow: false,
+    // renewableEnergyShow: false,
   }
 }, 
 computed: {
@@ -45,7 +44,7 @@ watch: {
    powerStationCo2Current: function (val) {
 
       if(this.powerStationCo2Current > this.powerStationCo2Max / 5) {
-        this.renewableEnergyShow = true;
+        this.$store.state.renewableEnergyShow = true;
       }
     },
 }
@@ -56,4 +55,7 @@ watch: {
 .alloy-page {
   overflow: hidden;
 }
+// .alloy-page--start {
+//   o
+// }
 </style>

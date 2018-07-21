@@ -21,7 +21,9 @@ const createStore = () => {
         production: 0.1 // One ☀️ Solar panel in kWh
       },
       // ∞ ⚡️ Desertec
-      desertecOn: false
+      desertecOn: false,
+      desertecShow: false,
+      renewableEnergyShow: false
     },
     getters: {
       // ---------------------------------------------------------------------- //

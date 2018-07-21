@@ -485,3 +485,29 @@
 //------------------------------------------------------//
 // END 🗺 Country map
 //------------------------------------------------------//
+.centrale-icon {
+  foreignObject.note div {
+    width: 150px;
+    background: #fff;
+    color: #000;
+    z-index: 999999;
+    font-size: 12px;
+    padding: $base-margin;
+
+    opacity: 0;
+
+    transition: opacity;
+    transition-duration: 300ms;
+    transition-timing-function: ease;
+
+    p {
+      margin: 0;
+    }
+  }
+
+  &:hover {
+    foreignObject.note div {
+      opacity: 1;
+    }
+  }
+}
