@@ -34,11 +34,12 @@ export default {
 
       allPowerStations.forEach(item => {
         if (item.id === id) {
-          if (item.enabled === "true") {
-            item.enabled = "false";
-          } else {
-            item.enabled = "true";
-          }
+          item.enabled = !item.enabled;
+          // if (item.enabled === "true") {
+          //   item.enabled = "false";
+          // } else {
+          //   item.enabled = "true";
+          // }
         }
       });
     },
@@ -69,7 +70,10 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "~/assets/css/common/_variables.scss";
-
+.land,
+.bg-circle {
+  pointer-events: none;
+}
 .bg-circle {
   fill: rgba($brand-light, 1);
   opacity: 0.1;

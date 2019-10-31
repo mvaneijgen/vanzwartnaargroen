@@ -118,7 +118,8 @@ body {
   transition-timing-function: ease;
 
   text-align: right;
-
+  position: relative;
+  z-index: 4000;
   &:hover {
     opacity: 1;
   }

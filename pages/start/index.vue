@@ -56,3 +56,8 @@ export default {
   },
 };
 </script>
+<style scoped>
+.alloy-page {
+  overflow: hidden;
+}
+</style>
