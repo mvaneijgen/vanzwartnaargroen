@@ -64,7 +64,15 @@ body {
     font-size: 1.2em;
   }
   .logo {
+    margin: 0 auto;
     margin-bottom: $base-margin * 4;
+    @include media-breakpoint-down(md) {
+      max-width: 200px;
+    }
+
+    img {
+      width: 100%;
+    }
   }
 }
 @include media-breakpoint-up(sm) {

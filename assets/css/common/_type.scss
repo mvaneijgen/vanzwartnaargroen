@@ -1,8 +1,12 @@
 body,
 html {
   font-family: "Renner*", sans-serif;
-  font-size: 18px;
-  line-height: 1.875;
+  font-size: 16px;
+  line-height: 1.7em;
+  @include media-breakpoint-up(lg) {
+    font-size: 18px;
+    line-height: 1.875;
+  }
 }
 
 p {
