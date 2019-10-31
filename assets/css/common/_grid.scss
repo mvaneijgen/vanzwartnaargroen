@@ -7,17 +7,15 @@
 body {
   margin: 0;
 }
+.alloy-no-scroll {
+  overflow: hidden;
+}
 //------------------------------------------------------//
 // END CSS reset
 //------------------------------------------------------//
 body {
   position: relative;
-  background: -webkit-linear-gradient(
-    top,
-    #005893 0%,
-    #005893 20%,
-    #72f2ff 100%
-  );
+  background: -webkit-linear-gradient(top, #005893 0%, #005893 20%, #72f2ff 100%);
   background: linear-gradient(to bottom, #005893 0%, #005893 20%, #72f2ff 100%);
   background-repeat: no-repeat;
   min-height: 100vh;
@@ -30,16 +28,8 @@ body {
   height: 100%;
   width: 100%;
   background: $brand-gradient-from; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    top,
-    $brand-gradient-from 0%,
-    $brand-gradient-to 100%
-  );
-  background: linear-gradient(
-    to bottom,
-    $brand-gradient-from 0%,
-    $brand-gradient-to 100%
-  );
+  background: -webkit-linear-gradient(top, $brand-gradient-from 0%, $brand-gradient-to 100%);
+  background: linear-gradient(to bottom, $brand-gradient-from 0%, $brand-gradient-to 100%);
   transition: opacity;
   transition-duration: 300ms;
   transition-timing-function: ease;
@@ -52,6 +42,7 @@ body {
   min-height: calc(100vh - 60px);
   width: 100%;
   position: relative;
+  z-index: 1000;
 
   .alloy-background-image {
     position: absolute;
@@ -61,6 +52,8 @@ body {
     left: 0;
     object-fit: cover;
     opacity: 0.1;
+    pointer-events: none;
+    z-index: -1;
   }
   > .inner {
     // position: relative;

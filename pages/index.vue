@@ -21,17 +21,11 @@
 </template>
 
 <script>
-
-export default {
-};
+export default {};
 </script>
 
 <style lang="scss" scoped>
 @import "~/assets/css/common/_variables.scss";
-
-.alloy-page {
-  // background-color: rgba($brand-dark, 0.6);
-}
 
 .alloy-slide-up {
   position: relative;

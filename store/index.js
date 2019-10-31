@@ -10,6 +10,7 @@ const createStore = () => {
       // 🌬 Wind Turbines
       windTurbines: {
         title: "Windmolens",
+        type: "windTurbines",
         amount: 2032,
         production: 1.3 // One 🌬 Wind Turbine in kWh
       },
@@ -17,6 +18,7 @@ const createStore = () => {
       // ☀️ Solar panels
       solarPanels: {
         title: "Zonnepanelen",
+        type: "solarPanels",
         amount: 2158,
         production: 0.1 // One ☀️ Solar panel in kWh
       },
@@ -32,13 +34,13 @@ const createStore = () => {
       powerStationEnergyMax: state => {
         const allPowerStations = state.powerStations;
         // Calculate total of all ⚡ power stations power stations
-        const calcAllEnergy = Object.keys(allPowerStations).reduce(function(
+        const calcAllEnergy = Object.keys(allPowerStations).reduce(function (
           previous,
           key
         ) {
           return previous + Number(allPowerStations[key].power);
         },
-        0);
+          0);
         // Convertcal mW to kW
         // const convert = calcAllEnergy * 1000;
         // Increase ⚡ energy production by 50%
@@ -57,13 +59,13 @@ const createStore = () => {
         const allPowerStations = state.powerStations;
 
         // Calculate total of all 🚗 CO₂ of the power stations
-        const calcAllCo2 = Object.keys(allPowerStations).reduce(function(
+        const calcAllCo2 = Object.keys(allPowerStations).reduce(function (
           previous,
           key
         ) {
           return previous + Number(allPowerStations[key].emissions);
         },
-        0);
+          0);
         // 🚗 Set state
         return calcAllCo2;
       },
@@ -81,13 +83,13 @@ const createStore = () => {
         const result = allPowerStations.filter(item => item.enabled);
 
         // Calculate total of all ⚡ power stations power stations
-        const calcTotalEnableEnergy = Object.keys(result).reduce(function(
+        const calcTotalEnableEnergy = Object.keys(result).reduce(function (
           previous,
           key
         ) {
           return previous + Number(result[key].power);
         },
-        0);
+          0);
         // Convertcal mW to kW
         // const convert = calcTotalEnableEnergy * 1000;
         // ⚡ Set state
@@ -107,13 +109,13 @@ const createStore = () => {
         const result = allPowerStations.filter(item => item.enabled);
 
         // Calculate total of all 🚗 CO₂ of the power stations
-        const calcTotalEnableCo2 = Object.keys(result).reduce(function(
+        const calcTotalEnableCo2 = Object.keys(result).reduce(function (
           previous,
           key
         ) {
           return previous + Number(result[key].emissions);
         },
-        0);
+          0);
         // 🚗 Set state
         return calcTotalEnableCo2;
       },
@@ -183,19 +185,24 @@ const createStore = () => {
     },
     mutations: {
       // 🌬 Update wind turbines
-      incrementWindTurbines: (state, payload) => {
-        state.windTurbines.amount += payload;
+      incrementState: (state, payload) => {
+        state[payload.type].amount += payload.amount;
       },
-      decrementWindTurbines: (state, payload) => {
-        state.windTurbines.amount -= payload;
+      decrementState: (state, payload) => {
+        state[payload.type].amount -= payload.amount;
       },
-      // ☀️ solar panels
-      incrementSolarPanels: (state, payload) => {
-        state.solarPanels.amount += payload;
-      },
-      decrementSolarPanels: (state, payload) => {
-        state.solarPanels.amount -= payload;
-      },
+      // incrementWindTurbines: (state, payload) => {
+      //   state.windTurbines.amount += payload;
+      // },
+      //   state.windTurbines.amount -= payload;
+      // },
+      // // ☀️ solar panels
+      // incrementSolarPanels: (state, payload) => {
+      //   state.solarPanels.amount += payload;
+      // },
+      // decrementSolarPanels: (state, payload) => {
+      //   state.solarPanels.amount -= payload;
+      // },
       // ---------------------------------------------------------------------- //
       // Toggle a specific fuel category of 🏭 power stations
       // ---------------------------------------------------------------------- //
