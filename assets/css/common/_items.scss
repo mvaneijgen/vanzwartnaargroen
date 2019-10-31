@@ -113,7 +113,10 @@
 //------------------------------------------------------//
 .component-RenewableEnergy {
   width: 100%;
-  bottom: 0;
+  bottom: $base-margin * 2;
+  @include media-breakpoint-up(lg) {
+    bottom: 0;
+  }
   left: 0;
   display: flex;
   justify-content: space-around;
@@ -395,10 +398,8 @@
 // END 🏭 Power plants
 //------------------------------------------------------//
 .component-Map {
-  transform: scale(1.8);
-}
-@include media-breakpoint-up(sm) {
-  .component-Map {
+  transform: scale(1.4);
+  @include media-breakpoint-up(sm) {
     transform: scale(1);
   }
 }
