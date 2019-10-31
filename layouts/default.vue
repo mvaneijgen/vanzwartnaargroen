@@ -1,6 +1,6 @@
 <template>
   <div>
-    <!-- <div class="alloy-body-overlay" :style="{ opacity: this.$store.getters.backgroundOpacity }"></div> -->
+    <div class="alloy-body-overlay" :style="{ opacity: backgroundOpacity }"></div>
     <div class="alloy-body-overlay"></div>
     <Navigation />
     <nuxt />
@@ -18,6 +18,15 @@ export default {
         class: "alloy-no-scroll",
       },
     };
+  },
+  computed: {
+    backgroundOpacity() {
+      if (process.client) {
+        return this.$store.getters.backgroundOpacity;
+      } else {
+        return 100;
+      }
+    },
   },
 };
 </script>

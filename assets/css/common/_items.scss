@@ -113,7 +113,7 @@
 //------------------------------------------------------//
 .component-RenewableEnergy {
   width: 100%;
-  bottom: $base-margin * 2;
+  bottom: $base-margin * 3;
   @include media-breakpoint-up(lg) {
     bottom: 0;
   }
