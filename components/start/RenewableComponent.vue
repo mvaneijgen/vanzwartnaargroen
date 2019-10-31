@@ -3,11 +3,11 @@
     <div class="inner">
       <transition name="ui-slide" mode="out-in">
 
-        <div class="alloy-note" v-if="times > 10 && times < 25 || times > 40 && times < 55">
+        <div class="alloy-note" v-if="times > 10 && times < 25 || times > 35 && times < 55">
 
           <div class="inner">
             <strong>Dat schiet niet op!</strong>
-            Plaats vanaf nu {{ initAmount }} stuks
+            Plaats vanaf nu {{ initAmount }} {{currentType.title}}
           </div>
         </div>
       </transition>
@@ -18,8 +18,12 @@
           <strong>{{ currentType.amount }}</strong>
         </div>
       </div>
-      <button @mousedown="decrement" @mouseup="stopInterfalls">-</button>
-      <button @mousedown="increment" @mouseup="stopInterfalls">+</button>
+      <button @mousedown="decrement" @mouseup="stopInterfalls">
+        <img src="@/assets/images/ui/range-minus.svg" :alt="currentType.title">
+      </button>
+      <button @mousedown="increment" @mouseup="stopInterfalls">
+        <img src="@/assets/images/ui/range-plus.svg" :alt="currentType.title">
+      </button>
     </div>
   </div>
 </template>
@@ -39,7 +43,7 @@ export default {
   }, // End data
   computed: {
     initAmount() {
-      if (this.times > 40) {
+      if (this.times > 35) {
         return 100;
       } else if (this.times > 10) {
         return 10;
@@ -99,7 +103,16 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-// button {
-//   border-radius: 50% !important;
-// }
+button {
+  padding: 0;
+  border-radius: 50% !important;
+  width: 60px;
+  height: 60px;
+  line-height: 1em;
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+}
 </style>
