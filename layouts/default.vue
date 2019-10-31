@@ -1,7 +1,8 @@
 <template>
   <div>
-    <div class="alloy-body-overlay" :style="{ opacity: this.$store.getters.backgroundOpacity }"></div>
-    <Navigation v-if="$nuxt.$route.path != '/'" />
+    <!-- <div class="alloy-body-overlay" :style="{ opacity: this.$store.getters.backgroundOpacity }"></div> -->
+    <div class="alloy-body-overlay"></div>
+    <Navigation />
     <nuxt />
   </div>
 </template>
@@ -20,6 +21,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped>
-</style>
