@@ -1,7 +1,6 @@
 <template>
   <div>
     <div class="alloy-body-overlay" :style="{ opacity: backgroundOpacity }"></div>
-    <div class="alloy-body-overlay"></div>
     <Navigation />
     <nuxt />
   </div>
