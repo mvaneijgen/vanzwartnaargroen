@@ -10,7 +10,7 @@
       <p>windProductionCurrent: {{ windProductionCurrent }}</p>
       <p>solarProductionCurrent: {{ solarProductionCurrent }}</p> -->
       <h3>
-        <span v-if="!this.$store.state.desertecOn">{{ energyProductionCalcAllCurrent }}</span>
+        <span v-if="!this.$store.state.desertecOn">{{ energyProductionCalcAllCurrent.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") }}</span>
         <span class="text-small" v-else>Ruim voldoende</span>
         <span> kWh</span>
       </h3>
@@ -24,12 +24,8 @@
     </div>
 
     <div class="alloy-progress alloy-co2">
-      <!-- <p>powerStationCo2Max: {{ this.$store.getters.powerStationCo2Max }}</p>
-      <p>powerStationCo2Current: {{ this.$store.getters.powerStationCo2Current }}</p> -->
-      <h3>{{ powerStationCo2Current }}
-        <span>CO
-          <sub>2</sub>
-        </span>
+      <h3>{{ powerStationCo2Current.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") }}
+        <span>CO<sub>2</sub></span>
       </h3>
       <div class="alloy-progressbar">
 
@@ -44,38 +40,38 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapGetters } from "vuex";
 
 export default {
   // props: [],
-  name: 'Progress',
+  name: "Progress",
   data() {
     return {
-      title: 'Progress'
-    }
+      title: "Progress",
+    };
   }, // End data
   computed: {
     // mix the getters into computed with object spread operator
     ...mapGetters([
-      // ⚡ Energy production 
-      'powerStationEnergyMax',
+      // ⚡ Energy production
+      "powerStationEnergyMax",
       // CURRENT
-      'powerStationEnergyCurrent',
-      'windProductionCurrent',
-      'solarProductionCurrent',
+      "powerStationEnergyCurrent",
+      "windProductionCurrent",
+      "solarProductionCurrent",
       // 🚗 CO₂ production
-      'powerStationCo2Max',
-      'powerStationCo2Current',
-      // ⚡️ Energy combined current 
-      'energyProductionCalcAllCurrent'
+      "powerStationCo2Max",
+      "powerStationCo2Current",
+      // ⚡️ Energy combined current
+      "energyProductionCalcAllCurrent",
     ]),
     isDesertecEnergy: function() {
-      if(!this.$store.state.desertecOn) {
+      if (!this.$store.state.desertecOn) {
         return this.energyProductionCalcAllCurrent;
       } else {
         return this.powerStationEnergyMax;
       }
-    }
+    },
   },
   methods: {},
   // watch: {},
@@ -83,7 +79,7 @@ export default {
   // // Live cicle hook. Check for more https://vuejs.org/v2/api/
   // created: {}, // Each time the app is created (once?)
   // mounted: {}, // Be sure all elements are drawn
-}
+};
 </script>
 
 <style lang="scss" scoped>

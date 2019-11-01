@@ -42,37 +42,15 @@ const createStore = () => {
         },
           0);
         // Convertcal mW to kW
-        // const convert = calcAllEnergy * 1000;
+        const convert = calcAllEnergy * 10000000;
         // Increase ⚡ energy production by 50%
-        const calcAllEnergyIncreased = (calcAllEnergy / 100) * 105 + 5000;
+        const calcAllEnergyIncreased = (convert / 100) * 105 + 5000;
         // ⚡ Set state
         return calcAllEnergyIncreased;
       },
       // ---------------------------------------------------------------------- //
       // END Calculate MAXIMUM ️️⚡ energy production of 🏭 stations power stations
       // ---------------------------------------------------------------------- //
-
-      // ---------------------------------------------------------------------- //
-      // Calculate MAXIMUM ️️🚗 CO₂ production of 🏭 stations power stations
-      // ---------------------------------------------------------------------- //
-      powerStationCo2Max: state => {
-        const allPowerStations = state.powerStations;
-
-        // Calculate total of all 🚗 CO₂ of the power stations
-        const calcAllCo2 = Object.keys(allPowerStations).reduce(function (
-          previous,
-          key
-        ) {
-          return previous + Number(allPowerStations[key].emissions);
-        },
-          0);
-        // 🚗 Set state
-        return calcAllCo2;
-      },
-      // ---------------------------------------------------------------------- //
-      // END Calculate MAXIMUM ️️🚗 CO₂ production of 🏭 stations power stations
-      // ---------------------------------------------------------------------- //
-
       // ---------------------------------------------------------------------- //
       // Filter enabled (CURRENT) ⚡ energy production 🏭 stations power stations
       // ---------------------------------------------------------------------- //
@@ -91,12 +69,34 @@ const createStore = () => {
         },
           0);
         // Convertcal mW to kW
-        // const convert = calcTotalEnableEnergy * 1000;
+        const convert = calcTotalEnableEnergy * 10000000;
         // ⚡ Set state
-        return calcTotalEnableEnergy;
+        return convert;
       },
       // ---------------------------------------------------------------------- //
       // END Filter enabled (CURRENT) ⚡ energy production 🏭 stations power stations
+      // ---------------------------------------------------------------------- //
+      // ---------------------------------------------------------------------- //
+      // Calculate MAXIMUM ️️🚗 CO₂ production of 🏭 stations power stations
+      // ---------------------------------------------------------------------- //
+      powerStationCo2Max: state => {
+        const allPowerStations = state.powerStations;
+
+        // Calculate total of all 🚗 CO₂ of the power stations
+        const calcAllCo2 = Object.keys(allPowerStations).reduce(function (
+          previous,
+          key
+        ) {
+          return previous + Number(allPowerStations[key].emissions);
+        },
+          0);
+        // convert 
+        const convert = calcAllCo2 * 1000;
+        // 🚗 Set state
+        return convert;
+      },
+      // ---------------------------------------------------------------------- //
+      // END Calculate MAXIMUM ️️🚗 CO₂ production of 🏭 stations power stations
       // ---------------------------------------------------------------------- //
 
       // ---------------------------------------------------------------------- //
@@ -116,8 +116,9 @@ const createStore = () => {
           return previous + Number(result[key].emissions);
         },
           0);
+        const convert = calcTotalEnableCo2 * 1000;
         // 🚗 Set state
-        return calcTotalEnableCo2;
+        return convert;
       },
       // ---------------------------------------------------------------------- //
       // END Filter enabled (CURRENT) 🚗 CO₂ production 🏭 stations power stations
