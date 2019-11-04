@@ -12,7 +12,8 @@ const createStore = () => {
         title: "Windmolens",
         type: "windTurbines",
         amount: 2032,
-        production: 1.3 // One 🌬 Wind Turbine in kWh
+        production: 1.3, // One 🌬 Wind Turbine in kWh
+        new: 0
       },
 
       // ☀️ Solar panels
@@ -20,7 +21,8 @@ const createStore = () => {
         title: "Zonnepanelen",
         type: "solarPanels",
         amount: 2158,
-        production: 0.1 // One ☀️ Solar panel in kWh
+        production: 0.1, // One ☀️ Solar panel in kWh
+        new: 0
       },
       // ∞ ⚡️ Desertec
       desertecOn: false,
@@ -188,22 +190,12 @@ const createStore = () => {
       // 🌬 Update wind turbines
       incrementState: (state, payload) => {
         state[payload.type].amount += payload.amount;
+        state[payload.type].new += payload.new;
       },
       decrementState: (state, payload) => {
         state[payload.type].amount -= payload.amount;
       },
-      // incrementWindTurbines: (state, payload) => {
-      //   state.windTurbines.amount += payload;
-      // },
-      //   state.windTurbines.amount -= payload;
-      // },
-      // // ☀️ solar panels
-      // incrementSolarPanels: (state, payload) => {
-      //   state.solarPanels.amount += payload;
-      // },
-      // decrementSolarPanels: (state, payload) => {
-      //   state.solarPanels.amount -= payload;
-      // },
+
       // ---------------------------------------------------------------------- //
       // Toggle a specific fuel category of 🏭 power stations
       // ---------------------------------------------------------------------- //

@@ -18,10 +18,10 @@
           <strong>{{ currentType.amount }}</strong>
         </div>
       </div>
-      <button @mousedown="decrement" @mouseup="stopInterfalls">
+      <button @mousedown="decrement">
         <img src="@/assets/images/ui/range-minus.svg" :alt="currentType.title">
       </button>
-      <button @mousedown="increment" @mouseup="stopInterfalls">
+      <button @mousedown="increment">
         <img src="@/assets/images/ui/range-plus.svg" :alt="currentType.title">
       </button>
     </div>
@@ -58,6 +58,7 @@ export default {
       const payload = {
         type: this.currentType.type,
         amount: this.initAmount,
+        new: new Date(),
       };
 
       const keepRunning = () => {
@@ -75,30 +76,40 @@ export default {
         type: this.currentType.type,
         amount: this.initAmount,
       };
-
       const keepRunning = () => {
-        this.incrementState(payload);
-        this.times++;
+        this.decrementState(payload);
+        this.times--;
       };
       keepRunning();
       // ⏱ Run function every .5 second
-      this.decrementState(payload);
-      this.times--;
-
       window.setInterval(() => {
         keepRunning();
       }, 500);
     },
-    stopInterfalls() {
-      // ⏱ Clear all setInterval()'s
-      (function(w) {
-        w = w || window;
-        var i = w.setInterval(function() {}, 100000);
-        while (i >= 0) {
-          w.clearInterval(i--);
-        }
-      })(/*window*/);
-    },
+    // stopInterfalls() {
+    //   // ⏱ Clear all setInterval()'s
+    //   (function(w) {
+    //     w = w || window;
+    //     var i = w.setInterval(function() {}, 100000);
+    //     while (i >= 0) {
+    //       w.clearInterval(i--);
+    //     }
+    //   })(/*window*/);
+    // },
+  },
+  mounted() {
+    if (process.client) {
+      window.addEventListener("mouseup", e => {
+        // ⏱ Clear all setInterval()'s
+        (function(w) {
+          w = w || window;
+          var i = w.setInterval(function() {}, 100000);
+          while (i >= 0) {
+            w.clearInterval(i--);
+          }
+        })(/*window*/);
+      });
+    }
   },
 };
 </script>
@@ -113,6 +124,7 @@ button {
     display: block;
     width: 100%;
     height: 100%;
+    pointer-events: none;
   }
 }
 </style>

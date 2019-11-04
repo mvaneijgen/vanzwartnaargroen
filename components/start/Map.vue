@@ -62,9 +62,40 @@ export default {
     },
   },
   watch: {
-    "$store.state.windTurbines.amount": function() {
+    "$store.state.windTurbines.new": function() {
       this.randomWind();
     },
+  },
+  mounted() {
+    //------------------------------------------------------//
+    // Timeline ❇️ 🧦 GSAP
+    //------------------------------------------------------//
+    // Basic values
+    const baseTiming = 0.3;
+    // Timeline stuff
+    const timeline = new this.$GSAP.TimelineMax();
+    timeline.staggerFrom(
+      ".component-Map .centrale-icon",
+      baseTiming * 2,
+      {
+        scale: 0,
+        ease: Elastic.easeOut.config(1, 0.4),
+        transformOrigin: "center",
+      },
+      0.2,
+    );
+    // END Timeline ❇️ 🧦  GSAP -------------------------------------//
+    // //------------------------------------------------------//
+    // // 🎩 ScrollMagic scene
+    // //------------------------------------------------------//
+    // const controller = new this.$ScrollMagic.Controller();
+    // const scene = new this.$ScrollMagic.Scene({
+    //   triggerElement: ".flex-Toolbox",
+    //   reverse: false,
+    // })
+    //   .setTween(timelineToolbox)
+    //   .addTo(controller);
+    // // END 🎩 ScrollMagic scene -------------------------------------//
   },
 };
 </script>

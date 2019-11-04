@@ -37,20 +37,16 @@ module.exports = {
           "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
       },
       { hid: "description", name: "description", content: "Nuxt.js project" },
-      // <link rel="stylesheet" href="https://indestructibletype-fonthosting.github.io/renner.css" type="text/css" charset="utf-8" />
-      {
-        rel: "stylesheet",
-        href: "https://indestructibletype-fonthosting.github.io/renner.css",
-        type: "text/css",
-        charset: "utf-8"
-      },
       {
         property: "og:image",
         content: "~/social.jpg"
       }
     ],
-    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
+    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.png" }]
   },
+  plugins: [
+    { src: '~/plugins/ScrollMagic.js', ssr: false },
+  ],
   /*
   ** Customize the progress bar color
   */

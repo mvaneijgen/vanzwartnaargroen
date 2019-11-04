@@ -4,13 +4,8 @@
       <img src="~/assets/images/logo.svg">
     </div>
     <div class="alloy-progress alloy-energy">
-      <!-- <p>All add up: {{ energyProductionCalcAllCurrent }}</p>
-      <p>powerStationEnergyMax: {{ powerStationEnergyMax }}</p>
-      <p>powerStationEnergyCurrent: {{ powerStationEnergyCurrent }}</p>
-      <p>windProductionCurrent: {{ windProductionCurrent }}</p>
-      <p>solarProductionCurrent: {{ solarProductionCurrent }}</p> -->
       <h3>
-        <span v-if="!this.$store.state.desertecOn">{{ energyProductionCalcAllCurrent.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") }}</span>
+        <span v-if="!this.$store.state.desertecOn">{{ animatedNumberPower.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")  }}</span>
         <span v-else>Ruim voldoende</span>
         <span> <a href="https://nl.wikipedia.org/wiki/Kilowattuur" target="_blank"> kWh</a></span>
       </h3>
@@ -43,13 +38,13 @@
 import { mapGetters } from "vuex";
 
 export default {
-  // props: [],
   name: "Progress",
   data() {
     return {
-      title: "Progress",
+      tweenedNumberPower: 0,
+      tweenedNumberCo2: 0,
     };
-  }, // End data
+  },
   computed: {
     // mix the getters into computed with object spread operator
     ...mapGetters([
@@ -72,13 +67,38 @@ export default {
         return this.powerStationEnergyMax;
       }
     },
+    // Animate the number 💯 using GSAP
+    animatedNumberPower: function() {
+      return this.tweenedNumberPower.toFixed(0);
+    },
+    animatedNumberCo2: function() {
+      return this.tweenedNumberCo2.toFixed(0);
+    },
   },
   methods: {},
-  // watch: {},
-
-  // // Live cicle hook. Check for more https://vuejs.org/v2/api/
-  // created: {}, // Each time the app is created (once?)
-  // mounted: {}, // Be sure all elements are drawn
+  watch: {
+    // Animate the number 💯 using GSAP
+    energyProductionCalcAllCurrent: function() {
+      this.$GSAP.TweenMax.to(this.$data, 1.1, {
+        tweenedNumberPower: this.energyProductionCalcAllCurrent,
+      });
+    },
+    powerStationCo2Current: function() {
+      this.$GSAP.TweenMax.to(this.$data, 1.1, {
+        tweenedNumberCo2: this.powerStationCo2Current,
+      });
+    },
+  },
+  created() {
+    if (process.client) {
+      this.$GSAP.TweenMax.to(this.$data, 5, {
+        tweenedNumberPower: this.energyProductionCalcAllCurrent,
+      });
+      this.$GSAP.TweenMax.to(this.$data, 5, {
+        tweenedNumberCo2: this.powerStationCo2Current,
+      });
+    }
+  },
 };
 </script>
 
