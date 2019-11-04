@@ -56,7 +56,10 @@
   > * {
     flex-grow: 1;
     width: 50%;
-    padding: $base-margin;
+    padding: 5px $base-margin;
+    @include media-breakpoint-up(lg) {
+      padding: $base-margin;
+    }
   }
 
   .logo {
@@ -81,7 +84,7 @@
 @include media-breakpoint-up(sm) {
   .component-Progress {
     display: block;
-    max-width: 300px;
+    max-width: 350px;
     left: -15%;
     .logo {
       display: block;
@@ -189,7 +192,6 @@
   color: $brand-dark;
 
   text-align: center;
-
   user-select: none;
   position: relative;
 
@@ -205,11 +207,17 @@
     background-color: $brand-light;
     position: absolute;
     left: 50%;
-    top: -80px;
+    top: -55px;
+    @include media-breakpoint-up(lg) {
+      top: -80px;
+    }
     transform: translatex(-50%);
     width: 100%;
     border-radius: 5px;
-    padding: $base-margin;
+    padding: 5px;
+    @include media-breakpoint-up(lg) {
+      padding: $base-margin;
+    }
 
     span {
       margin-left: $base-margin/3;
@@ -229,33 +237,40 @@
       border-top: $base-margin solid $brand-light;
     }
   }
-  .alloy-note .inner {
+  .alloy-note {
     text-align: left;
     pointer-events: none;
     background-color: $brand-one;
     position: absolute;
     left: 50%;
-    top: -144px;
+    top: -115px;
+    @include media-breakpoint-up(lg) {
+      top: -145px;
+    }
     transform: translatex(-50%);
     width: 100%;
     border-radius: 5px;
     padding: 10px 10px 20px 10px;
-    font-size: 16px;
+    font-size: 14px;
+    @include media-breakpoint-up(lg) {
+      font-size: 16px;
+    }
     line-height: 1.4em;
+    .inner {
+      // &::after {
+      //   content: "";
+      //   position: absolute;
+      //   top: -$base-margin;
+      //   left: 50%;
+      //   transform: translatex(-50%);
+      //   width: 0;
+      //   height: 0;
+      //   border-left: $base-margin solid transparent;
+      //   border-right: $base-margin solid transparent;
 
-    // &::after {
-    //   content: "";
-    //   position: absolute;
-    //   top: -$base-margin;
-    //   left: 50%;
-    //   transform: translatex(-50%);
-    //   width: 0;
-    //   height: 0;
-    //   border-left: $base-margin solid transparent;
-    //   border-right: $base-margin solid transparent;
-
-    //   border-bottom: $base-margin solid $brand-light;
-    // }
+      //   border-bottom: $base-margin solid $brand-light;
+      // }
+    }
   }
   .alloy-slider {
     // background-color: rgba($brand-light, 0.3);
@@ -370,7 +385,7 @@
 // 🏭 Power plants
 //------------------------------------------------------//
 .component-PowerCategory {
-  top: 50%;
+  top: 45%;
   transform: translateY(-63%) translateX(25%);
   @include media-breakpoint-up(sm) {
     transform: translateY(-40%) translateX(25%);

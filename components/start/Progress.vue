@@ -11,8 +11,8 @@
       <p>solarProductionCurrent: {{ solarProductionCurrent }}</p> -->
       <h3>
         <span v-if="!this.$store.state.desertecOn">{{ energyProductionCalcAllCurrent.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") }}</span>
-        <span class="text-small" v-else>Ruim voldoende</span>
-        <span> kWh</span>
+        <span v-else>Ruim voldoende</span>
+        <span> <a href="https://nl.wikipedia.org/wiki/Kilowattuur" target="_blank"> kWh</a></span>
       </h3>
       <div class="alloy-progressbar">
         <label for="Energieopwekking">Energieopwekking</label>
@@ -83,11 +83,21 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "~/assets/css/common/_variables.scss";
+
 .logo {
   margin-top: 15px;
   margin-bottom: 0;
 }
+a {
+  color: $brand-light;
+  text-decoration: underline;
+}
 h3 {
+  margin-bottom: 5px;
+  @include media-breakpoint-up(lg) {
+    margin-bottom: $base-margin;
+  }
   span {
     position: relative;
 

@@ -12,50 +12,50 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapGetters } from "vuex";
 
 export default {
   // props: [],
-  name: 'Desertec',
+  name: "Desertec",
   data() {
     return {
-      title: 'Desertec',
+      title: "Desertec",
       initWind: 0,
       initSolar: 0,
-    }
+    };
   }, // End data
   computed: {
-      ...mapGetters([
-    // 🚗 CO₂ production
-    'windProductionCurrent',
-    'solarProductionCurrent',
-  ]),
+    ...mapGetters([
+      // 🚗 CO₂ production
+      "windProductionCurrent",
+      "solarProductionCurrent",
+    ]),
     desertecOn: {
-      get () {
-        return this.$store.state.desertecOn
+      get() {
+        return this.$store.state.desertecOn;
       },
-      set (value) {
-        this.$store.commit('desertecUpdate', value)
-      }
-    }
+      set(value) {
+        this.$store.commit("desertecUpdate", value);
+      },
+    },
   },
   watch: {
     windProductionCurrent: function() {
-      if(this.windProductionCurrent >= this.initWind * 1.3) {
+      if (this.windProductionCurrent >= this.initWind * 1.3) {
         this.$store.state.desertecShow = true;
       }
     },
     solarProductionCurrent: function() {
-      if(this.solarProductionCurrent >= this.initSolar * 1.3) {
+      if (this.solarProductionCurrent >= this.initSolar * 1.3) {
         $store.state.desertecShow = true;
       }
-    }
+    },
   },
   created() {
     this.initWind = this.$store.getters.windProductionCurrent;
     this.initSolar = this.$store.getters.solarProductionCurrent;
   },
-}
+};
 </script>
 
 <style lang="scss"  scoped>
@@ -63,6 +63,10 @@ export default {
 
 .component-Desertec {
   position: relative;
+  transform: scale(0.7);
+  @include media-breakpoint-up(lg) {
+    transform: scale(1);
+  }
 }
 .content {
   position: absolute;
@@ -105,7 +109,10 @@ label {
 [type="checkbox"]:checked + label:before {
   content: "";
   position: absolute;
-  left: 0;
+  left: -14px;
+  @include media-breakpoint-up(lg) {
+    left: 0;
+  }
   top: 0;
   width: 85px;
   height: 85px;
@@ -114,6 +121,7 @@ label {
   border: 2px solid $brand-light;
   border-radius: 50%;
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
 }
 /* checked mark aspect */
 [type="checkbox"]:not(:checked) + label:after,
@@ -121,7 +129,10 @@ label {
   content: "✔";
   position: absolute;
   top: 5px;
-  left: 18px;
+  left: 0;
+  @include media-breakpoint-up(lg) {
+    left: 25px;
+  }
   font-size: 80px;
   line-height: 0.8;
   color: $brand-one;
@@ -130,6 +141,7 @@ label {
   transition-timing-function: ease;
 
   font-family: Helvetica, Arial, sans-serif;
+  z-index: 1000;
 }
 /* checked mark aspect changes */
 [type="checkbox"]:not(:checked) + label:after {
