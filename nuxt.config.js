@@ -26,7 +26,7 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: "vanzwartnaargroen",
+    title: "van Zwart naar Groen",
     meta: [
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
@@ -36,7 +36,7 @@ module.exports = {
         content:
           "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
       },
-      { hid: "description", name: "description", content: "Nuxt.js project" },
+      { hid: "description", name: "description", content: "Van zwart naar groen is een interactieve tool waarmee bezoekers een overzicht krijgen van de Nederlandse energieproductie en de manier waarop vervuilende energiecentrales kunnen worden vervangen voor een meer duurzame vorm van energieopwekking." },
       {
         property: "og:image",
         content: "~/social.jpg"
