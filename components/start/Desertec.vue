@@ -41,13 +41,13 @@ export default {
   },
   watch: {
     windProductionCurrent: function() {
-      if (this.windProductionCurrent >= this.initWind * 1.3) {
+      if (this.windProductionCurrent >= this.initWind * 1.15) {
         this.$store.state.desertecShow = true;
       }
     },
     solarProductionCurrent: function() {
-      if (this.solarProductionCurrent >= this.initSolar * 1.3) {
-        $store.state.desertecShow = true;
+      if (this.solarProductionCurrent >= this.initSolar * 1.15) {
+        this.$store.state.desertecShow = true;
       }
     },
   },
@@ -72,12 +72,14 @@ export default {
   position: absolute;
   left: -125px;
   top: 34px;
-  background-color: rgba($brand-light, 0.6);
+  // background-color: rgba($brand-light, 0.6);
+  background-color: $brand-one;
   color: $brand-dark;
   padding: 10px;
   padding-right: 25px;
   font-size: 1rem;
   line-height: 1.4em;
+  font-weight: 700;
 
   a {
     display: block;

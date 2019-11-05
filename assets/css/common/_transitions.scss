@@ -98,3 +98,19 @@
 //------------------------------------------------------//
 // END UI transtions /starr
 //------------------------------------------------------//
+.ui-slide-from-right-enter-active,
+.ui-slide-from-right-leave-active {
+  transition: transform, opacity;
+  transition-duration: 1000ms;
+  transition-timing-function: cubic-bezier(0.87, -0.41, 0.19, 1.44);
+}
+.ui-slide-from-right-enter,
+.ui-slide-from-right-leave-to {
+  opacity: 0;
+  transform: translateX(300px);
+}
+.ui-slide-from-right-enter-to,
+.ui-slide-from-right-leave {
+  opacity: 1;
+  transform: translateX(0);
+}

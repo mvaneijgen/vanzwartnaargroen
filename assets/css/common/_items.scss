@@ -385,12 +385,15 @@
 // 🏭 Power plants
 //------------------------------------------------------//
 .component-PowerCategory {
-  top: 45%;
-  transform: translateY(-63%) translateX(25%);
-  @include media-breakpoint-up(sm) {
-    transform: translateY(-40%) translateX(25%);
+  top: 25%;
+  // transform: translateY(-63%) translateX(25%);
+  // @include media-breakpoint-up(sm) {
+  //   transform: translateY(-40%) translateX(25%);
+  // }
+  right: -25px;
+  @include media-breakpoint-up(lg) {
+    right: 0;
   }
-  right: 0;
 
   button {
     display: block !important;

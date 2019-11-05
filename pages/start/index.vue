@@ -3,7 +3,9 @@
     <keep-alive>
       <div class="inner">
         <Progress />
-        <PowerCategory />
+        <transition name="ui-slide-from-right">
+          <PowerCategory v-if="this.$store.state.toggleAllShow" />
+        </transition>
         <transition name="ui-slide">
           <RenewableEnergy v-if="this.$store.state.renewableEnergyShow" />
         </transition>
@@ -48,8 +50,11 @@ export default {
     ]),
   },
   watch: {
-    powerStationCo2Current: function(val) {
-      if (this.powerStationCo2Current > this.powerStationCo2Max / 5) {
+    powerStationCo2Current() {
+      if (this.powerStationCo2Current < this.powerStationCo2Max * 0.9) {
+        this.$store.state.toggleAllShow = true;
+      }
+      if (this.powerStationCo2Current < this.powerStationCo2Max * 0.25) {
         this.$store.state.renewableEnergyShow = true;
       }
     },

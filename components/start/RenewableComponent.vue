@@ -55,13 +55,13 @@ export default {
   methods: {
     ...mapMutations(["incrementState", "decrementState"]),
     increment() {
-      const payload = {
-        type: this.currentType.type,
-        amount: this.initAmount,
-        new: new Date(),
-      };
-
       const keepRunning = () => {
+        const payload = {
+          type: this.currentType.type,
+          amount: this.initAmount,
+          new: new Date(),
+        };
+
         this.incrementState(payload);
         this.times++;
       };
@@ -72,11 +72,12 @@ export default {
       }, 500);
     },
     decrement() {
-      const payload = {
-        type: this.currentType.type,
-        amount: this.initAmount,
-      };
       const keepRunning = () => {
+        const payload = {
+          type: this.currentType.type,
+          amount: this.initAmount,
+        };
+
         this.decrementState(payload);
         this.times--;
       };

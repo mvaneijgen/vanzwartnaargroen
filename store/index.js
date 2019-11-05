@@ -27,7 +27,8 @@ const createStore = () => {
       // ∞ ⚡️ Desertec
       desertecOn: false,
       desertecShow: false,
-      renewableEnergyShow: false
+      toggleAllShow: false,
+      renewableEnergyShow: false,
     },
     getters: {
       // ---------------------------------------------------------------------- //
@@ -40,15 +41,15 @@ const createStore = () => {
           previous,
           key
         ) {
-          return previous + Number(allPowerStations[key].power);
+          return previous + (Number(allPowerStations[key].power));
         },
           0);
         // Convertcal mW to kW
-        const convert = calcAllEnergy * 10000000;
+        const convert = ((calcAllEnergy * 0.51) * 1.1) * 10000000;
         // Increase ⚡ energy production by 50%
-        const calcAllEnergyIncreased = (convert / 100) * 105 + 5000;
+        const calcAllEnergyIncreased = convert;
         // ⚡ Set state
-        return calcAllEnergyIncreased;
+        return convert;
       },
       // ---------------------------------------------------------------------- //
       // END Calculate MAXIMUM ️️⚡ energy production of 🏭 stations power stations
@@ -67,7 +68,7 @@ const createStore = () => {
           previous,
           key
         ) {
-          return previous + Number(result[key].power);
+          return previous + (Number(result[key].power) * 0.51);
         },
           0);
         // Convertcal mW to kW
