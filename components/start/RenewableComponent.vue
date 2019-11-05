@@ -87,16 +87,6 @@ export default {
         keepRunning();
       }, 500);
     },
-    // stopInterfalls() {
-    //   // ⏱ Clear all setInterval()'s
-    //   (function(w) {
-    //     w = w || window;
-    //     var i = w.setInterval(function() {}, 100000);
-    //     while (i >= 0) {
-    //       w.clearInterval(i--);
-    //     }
-    //   })(/*window*/);
-    // },
   },
   mounted() {
     if (process.client) {
