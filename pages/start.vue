@@ -55,9 +55,19 @@ export default {
         this.$store.state.toggleAllShow = true;
       }
       if (this.powerStationCo2Current < this.powerStationCo2Max * 0.25) {
-        this.$store.state.renewableEnergyShow = true;
+        this.$store.staterenewableEnergyShow = true;
       }
     },
+  },
+  mounted() {
+    const notification = {
+      title: "Wij gebruiken cookies!",
+      content: "Deze site gebruikt alleen voor analytische doeleinden.",
+      image: "",
+      type: "",
+      timer: 10000,
+    };
+    this.$store.commit("notifications/addNotification", notification);
   },
 };
 </script>

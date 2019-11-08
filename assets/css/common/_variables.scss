@@ -8,15 +8,22 @@ $brand-two: #e64;
 $brand-three: #8dd;
 $brand-four: #d16;
 
+$notification-notice: $brand-one;
+$notification-alert: $brand-two;
+$notification-warning: $brand-four;
+
 $brand-gradient-from: #212a27;
 $brand-gradient-to: #505050;
 
 // $brand-dark: #000;
+$font-base: "Renner*", sans-serif;
+$font-header: "Renner*", sans-serif;
 $brand-dark: #252b29;
 $brand-light: #fff;
 $brand-grey: #ccc;
 
 $base-margin: 15px;
+$radius: 5px;
 $base-alpha: 0.6;
 $base-duration: 1200ms;
 
@@ -90,17 +97,9 @@ $grid-breakpoints: (
 //    md
 //    >> breakpoint-next(sm, $breakpoint-names: (xs sm md lg xl))
 //    md
-@function breakpoint-next(
-  $name,
-  $breakpoints: $grid-breakpoints,
-  $breakpoint-names: map-keys($breakpoints)
-) {
+@function breakpoint-next($name, $breakpoints: $grid-breakpoints, $breakpoint-names: map-keys($breakpoints)) {
   $n: index($breakpoint-names, $name);
-  @return if(
-    $n < length($breakpoint-names),
-    nth($breakpoint-names, $n + 1),
-    null
-  );
+  @return if($n < length($breakpoint-names), nth($breakpoint-names, $n + 1), null);
 }
 
 // Minimum breakpoint width. Null for the smallest (first) breakpoint.
@@ -161,11 +160,7 @@ $grid-breakpoints: (
 
 // Media that spans multiple breakpoint widths.
 // Makes the @content apply between the min and max breakpoints
-@mixin media-breakpoint-between(
-  $lower,
-  $upper,
-  $breakpoints: $grid-breakpoints
-) {
+@mixin media-breakpoint-between($lower, $upper, $breakpoints: $grid-breakpoints) {
   $min: breakpoint-min($lower, $breakpoints);
   $max: breakpoint-max($upper, $breakpoints);
 
