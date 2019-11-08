@@ -18,7 +18,7 @@ module.exports = {
   //   }
   // }
   generate: {
-    dir: "docs"
+    dir: "docs",
   },
   ...routerBase,
   css: ["@/assets/css/main.scss"],
