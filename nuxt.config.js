@@ -1,11 +1,11 @@
-const routerBase =
-  process.env.DEPLOY_ENV === "GH_PAGES"
-    ? {
-      router: {
-        base: "/"
-      }
-    }
-    : {};
+// const routerBase =
+//   process.env.DEPLOY_ENV === "GH_PAGES"
+//     ? {
+//       router: {
+//         base: "/"
+//       }
+//     }
+//     : {};
 
 module.exports = {
   transition: "page",
@@ -20,7 +20,7 @@ module.exports = {
   generate: {
     dir: "docs",
   },
-  ...routerBase,
+  // ...routerBase,
   css: ["@/assets/css/main.scss"],
   /*
   ** Headers of the page
