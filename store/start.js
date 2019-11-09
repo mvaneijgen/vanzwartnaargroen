@@ -1,34 +1,33 @@
 import powerStations from "~/static/powerStations.json";
 
 export const state = () => ({
-  state: {
-    // 🏭 Power Station
-    powerStations: powerStations,
+  // 🏭 Power Station
+  powerStations: powerStations,
 
-    // 🌬 Wind Turbines
-    windTurbines: {
-      title: "Windmolens",
-      type: "windTurbines",
-      amount: 2032,
-      production: 1.3, // One 🌬 Wind Turbine in kWh
-      new: 0
-    },
-
-    // ☀️ Solar panels
-    solarPanels: {
-      title: "Zonnepanelen",
-      type: "solarPanels",
-      amount: 2158,
-      production: 0.1, // One ☀️ Solar panel in kWh
-      new: 0
-    },
-    // ∞ ⚡️ Desertec
-    desertecOn: false,
-    desertecShow: false,
-    toggleAllShow: false,
-    renewableEnergyShow: false,
+  // 🌬 Wind Turbines
+  windTurbines: {
+    title: "Windmolens",
+    type: "windTurbines",
+    amount: 2032,
+    production: 1.3, // One 🌬 Wind Turbine in kWh
+    new: 0
   },
+
+  // ☀️ Solar panels
+  solarPanels: {
+    title: "Zonnepanelen",
+    type: "solarPanels",
+    amount: 2158,
+    production: 0.1, // One ☀️ Solar panel in kWh
+    new: 0
+  },
+  // ∞ ⚡️ Desertec
+  desertecOn: false,
+  desertecShow: false,
+  toggleAllShow: false,
+  renewableEnergyShow: false,
 });
+
 export const getters = {
   // ---------------------------------------------------------------------- //
   // Calculate MAXIMUM ️️⚡ energy production of 🏭 stations power stations
@@ -58,7 +57,6 @@ export const getters = {
   // ---------------------------------------------------------------------- //
   powerStationEnergyCurrent: state => {
     const allPowerStations = state.powerStations;
-
     // FILTER
     const result = allPowerStations.filter(item => item.enabled);
 
@@ -186,6 +184,7 @@ export const getters = {
   // END 🎨 Calculate background dark opacity based on powerStationEnergyMax
   //------------------------------------------------------//
 };
+
 export const mutations = {
   // 🌬 Update wind turbines
   incrementState: (state, payload) => {
@@ -221,8 +220,21 @@ export const mutations = {
   //------------------------------------------------------//
   desertecUpdate: (state, payload) => {
     state.desertecOn = payload;
-  }
+  },
   //------------------------------------------------------//
   // END Set ∞ ⚡️ Desertec
   //------------------------------------------------------//
+  toggleCentral: (state, payload) => {
+    const foundIndex = state.powerStations.findIndex(item => item.id == payload);
+    state.powerStations[foundIndex].enabled = !state.powerStations[foundIndex].enabled;
+  },
+  updateToggleAllShow: (state, payload) => {
+    state.toggleAllShow = true;
+  },
+  updateRenewableEnergyShow: (state, payload) => {
+    state.renewableEnergyShow = true;
+  },
+  updateDesertecShow: (state, payload) => {
+    state.desertecShow = true;
+  },
 };

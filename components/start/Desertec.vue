@@ -1,6 +1,6 @@
 <template>
   <transition name="slide-from-right">
-    <div class="component-Desertec" v-if="this.$store.state.desertecShow">
+    <div class="component-Desertec" v-if="this.$store.state.start.desertecShow">
       <input type="checkbox" id="checkbox-desertec" v-model="desertecOn">
       <label for="checkbox-desertec">Desertec</label>
       <div class="content">
@@ -22,38 +22,61 @@ export default {
       title: "Desertec",
       initWind: 0,
       initSolar: 0,
+      desertecNotification: false,
     };
   }, // End data
   computed: {
-    ...mapGetters([
+    ...mapGetters({
       // 🚗 CO₂ production
-      "windProductionCurrent",
-      "solarProductionCurrent",
-    ]),
+      windProductionCurrent: "start/windProductionCurrent",
+      solarProductionCurrent: "start/solarProductionCurrent",
+    }),
     desertecOn: {
       get() {
-        return this.$store.state.desertecOn;
+        return this.$store.state.start.desertecOn;
       },
       set(value) {
-        this.$store.commit("desertecUpdate", value);
+        this.$store.commit("start/desertecUpdate", value);
       },
+    },
+  },
+  methods: {
+    desertecAvalible: function() {
+      if (!this.desertecNotification) {
+        this.desertecNotification = true;
+
+        const notification = {
+          title: "Nieuwe optie Desertec!",
+          content:
+            "Wij hebben je een nieuwe optie gegeven, Desertec. Misschien kun je hier iets me?",
+          image: "",
+          type: "alert",
+          timer: 6000,
+          date: new Date(),
+        };
+        this.$store.commit("notifications/addNotification", notification);
+      }
     },
   },
   watch: {
     windProductionCurrent: function() {
       if (this.windProductionCurrent >= this.initWind * 1.15) {
-        this.$store.state.desertecShow = true;
+        this.$store.commit("start/updateDesertecShow");
+        this.desertecAvalible();
       }
     },
     solarProductionCurrent: function() {
       if (this.solarProductionCurrent >= this.initSolar * 1.15) {
-        this.$store.state.desertecShow = true;
+        this.$store.commit("start/updateDesertecShow");
+        this.desertecAvalible();
       }
     },
   },
   created() {
-    this.initWind = this.$store.getters.windProductionCurrent;
-    this.initSolar = this.$store.getters.solarProductionCurrent;
+    // this.initWind = this.$store.getters.windProductionCurrent;
+    // this.initSolar = this.$store.getters.solarProductionCurrent;
+    this.initWind = this.$store.getters["start/windProductionCurrent"];
+    this.initSolar = this.$store.getters["start/solarProductionCurrent"];
   },
 };
 </script>

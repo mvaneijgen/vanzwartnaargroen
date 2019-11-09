@@ -7,20 +7,19 @@ $brand-one: #f6e437;
 $brand-two: #e64;
 $brand-three: #8dd;
 $brand-four: #d16;
+$brand-dark: #252b29;
+$brand-light: #fff;
+$brand-grey: #ccc;
 
-$notification-notice: $brand-one;
-$notification-alert: $brand-two;
+$notification-notice: rgba($brand-light, 0.6);
+$notification-alert: $brand-one;
 $notification-warning: $brand-four;
 
 $brand-gradient-from: #212a27;
 $brand-gradient-to: #505050;
 
-// $brand-dark: #000;
 $font-base: "Renner*", sans-serif;
 $font-header: "Renner*", sans-serif;
-$brand-dark: #252b29;
-$brand-light: #fff;
-$brand-grey: #ccc;
 
 $base-margin: 15px;
 $radius: 5px;

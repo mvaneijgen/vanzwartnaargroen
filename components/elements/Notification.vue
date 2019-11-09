@@ -32,17 +32,17 @@ export default {
     };
   }, // End data
   methods: {
-    notificationRemove: function(id) {
-      this.$store.commit("notifications/removeNotification", id);
+    notificationRemove: function(date) {
+      this.$store.commit("notifications/removeNotification", date);
     },
-    notificationTimer: function(id, timer) {
+    notificationTimer: function(date, timer) {
       setTimeout(() => {
-        this.notificationRemove(id);
+        this.notificationRemove(date);
       }, timer);
     },
   },
-  mounted() {
-    this.notificationTimer(this.notification.index, this.notification.timer);
+  created() {
+    this.notificationTimer(this.notification.date, this.notification.timer);
   },
 };
 </script>
@@ -56,7 +56,7 @@ export default {
   padding: $base-margin;
   font-size: 0.8rem;
   line-height: 1.4em;
-  color: $brand-light;
+  color: $brand-dark;
   margin-bottom: $base-margin;
   border-radius: $radius;
 

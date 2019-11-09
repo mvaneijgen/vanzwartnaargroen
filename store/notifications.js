@@ -4,14 +4,14 @@ export const state = () => ({
 
 export const mutations = {
   addNotification(state, payload) {
-    const notification = payload;
-    notification.id = state.notifications.length;
+    // const notification = payload;
+    payload.id = state.notifications.length;
 
-    state.notifications.push(notification);
+    state.notifications.push(payload);
   },
-  removeNotification(state, id) {
+  removeNotification(state, date) {
     const removeIndex = state.notifications.findIndex(
-      item => item.id == id
+      item => item.date == date
     );
     state.notifications.splice(removeIndex, 1);
   },

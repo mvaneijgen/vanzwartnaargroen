@@ -4,10 +4,10 @@
       <div class="inner">
         <Progress />
         <transition name="ui-slide-from-right">
-          <PowerCategory v-if="this.$store.state.toggleAllShow" />
+          <PowerCategory v-if="this.$store.state.start.toggleAllShow" />
         </transition>
         <transition name="ui-slide">
-          <RenewableEnergy v-if="this.$store.state.renewableEnergyShow" />
+          <RenewableEnergy v-if="this.$store.state.start.renewableEnergyShow" />
         </transition>
         <Map />
       </div>
@@ -43,31 +43,21 @@ export default {
     };
   },
   computed: {
-    ...mapGetters([
+    ...mapGetters({
       // 🚗 CO₂ production
-      "powerStationCo2Max",
-      "powerStationCo2Current",
-    ]),
+      powerStationCo2Max: "start/powerStationCo2Max",
+      powerStationCo2Current: "start/powerStationCo2Current",
+    }),
   },
   watch: {
     powerStationCo2Current() {
       if (this.powerStationCo2Current < this.powerStationCo2Max * 0.9) {
-        this.$store.state.toggleAllShow = true;
+        this.$store.commit("start/updateToggleAllShow");
       }
       if (this.powerStationCo2Current < this.powerStationCo2Max * 0.25) {
-        this.$store.staterenewableEnergyShow = true;
+        this.$store.commit("start/updateRenewableEnergyShow");
       }
     },
-  },
-  mounted() {
-    const notification = {
-      title: "Wij gebruiken cookies!",
-      content: "Deze site gebruikt alleen voor analytische doeleinden.",
-      image: "",
-      type: "",
-      timer: 10000,
-    };
-    this.$store.commit("notifications/addNotification", notification);
   },
 };
 </script>

@@ -19,55 +19,60 @@
 </template>
 
 <script>
-import Desertec from '@/components/start/Desertec.vue';
+import Desertec from "@/components/start/Desertec.vue";
 
-import { mapMutations } from 'vuex';
+import { mapMutations } from "vuex";
 
 export default {
   // props: [],
-  name: 'PowerCategory',
+  name: "PowerCategory",
   components: {
-     Desertec,
+    Desertec,
   },
 
   data() {
     return {
-      title: 'PowerCategory',
+      title: "PowerCategory",
       off: true,
-    }
+    };
   }, // End data
   methods: {
     // mix the getters into computed with object spread operator
-    ...mapMutations([
-     'togglePowerStationCat'
-    ]),
+    ...mapMutations({
+      togglePowerStationCat: "start/togglePowerStationCat",
+    }),
     toggleOff: function(e) {
-      const target = e.target
+      const target = e.target;
 
       const parameterObj = {
         fuel: target.dataset.fuel,
-        toggle: target.dataset.toggle
-      }
+        toggle: target.dataset.toggle,
+      };
 
       // Run Vuex getter
       this.togglePowerStationCat(parameterObj);
 
       // Switch toggle true or false
-      if (target.dataset.toggle === 'off') {
-        target.dataset.toggle = 'on'
+      if (target.dataset.toggle === "off") {
+        target.dataset.toggle = "on";
       } else {
-        target.dataset.toggle = 'off'
+        target.dataset.toggle = "off";
       }
-    }
-   
+    },
   },
-  // methods: {},
-  // watch: {},
-
-  // // Live cicle hook. Check for more https://vuejs.org/v2/api/
-  // created: {}, // Each time the app is created (once?)
-  // mounted: {}, // Be sure all elements are drawn
-}
+  mounted() {
+    const notification = {
+      title: "Nice, je bent al goed opweg!",
+      content:
+        "Met deze knoppen kun je in één keer alle kolen, gas of nucleaire centrales uit zetten",
+      image: "",
+      type: "alert",
+      timer: 8000,
+      date: new Date(),
+    };
+    this.$store.commit("notifications/addNotification", notification);
+  }, // Be sure all elements are drawn
+};
 </script>
 
 <style lang="scss"  scoped>

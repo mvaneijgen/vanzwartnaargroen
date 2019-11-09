@@ -1,6 +1,6 @@
 <template>
   <div class="component-NotificationsContainer">
-    <transition-group name="slide-in" mode="out-in">
+    <transition-group name="ui-slide-from-right" mode="out-in">
       <Notification v-for="(notification) in getNotifications" :key="notification.id" :notification="notification" />
     </transition-group>
   </div>
@@ -35,7 +35,7 @@ export default {
 .component-NotificationsContainer {
   position: fixed;
   right: $base-margin;
-  bottom: $base-margin;
+  top: $base-margin;
   width: 100%;
   z-index: 9000;
   max-width: 300px;

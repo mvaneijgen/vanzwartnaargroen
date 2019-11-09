@@ -5,14 +5,14 @@
     </div>
     <div class="alloy-progress alloy-energy">
       <h3>
-        <span v-if="!this.$store.state.desertecOn">{{ animatedNumberPower.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")  }}</span>
+        <span v-if="!this.$store.state.start.desertecOn">{{ animatedNumberPower.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")  }}</span>
         <span v-else>Ruim voldoende</span>
         <span> <a href="https://nl.wikipedia.org/wiki/Kilowattuur" target="_blank"> kWh</a></span>
       </h3>
       <div class="alloy-progressbar">
         <label for="Energieopwekking">Energieopwekking</label>
 
-        <progress id="Energieopwekking" name="Energieopwekking" :class="{ desertecOn: this.$store.state.desertecOn }" :max="powerStationEnergyMax" :value="isDesertecEnergy">
+        <progress id="Energieopwekking" name="Energieopwekking" :class="{ desertecOn: this.$store.state.start.desertecOn }" :max="powerStationEnergyMax" :value="isDesertecEnergy">
           {{ energyProductionCalcAllCurrent }} current / {{ powerStationEnergyMax }} max
         </progress>
       </div>
@@ -47,21 +47,21 @@ export default {
   },
   computed: {
     // mix the getters into computed with object spread operator
-    ...mapGetters([
+    ...mapGetters({
       // ⚡ Energy production
-      "powerStationEnergyMax",
+      powerStationEnergyMax: "start/powerStationEnergyMax",
       // CURRENT
-      "powerStationEnergyCurrent",
-      "windProductionCurrent",
-      "solarProductionCurrent",
+      powerStationEnergyCurrent: "start/powerStationEnergyCurrent",
+      windProductionCurrent: "start/windProductionCurrent",
+      solarProductionCurrent: "start/solarProductionCurrent",
       // 🚗 CO₂ production
-      "powerStationCo2Max",
-      "powerStationCo2Current",
+      powerStationCo2Max: "start/powerStationCo2Max",
+      powerStationCo2Current: "start/powerStationCo2Current",
       // ⚡️ Energy combined current
-      "energyProductionCalcAllCurrent",
-    ]),
+      energyProductionCalcAllCurrent: "start/energyProductionCalcAllCurrent",
+    }),
     isDesertecEnergy: function() {
-      if (!this.$store.state.desertecOn) {
+      if (!this.$store.state.start.desertecOn) {
         return this.energyProductionCalcAllCurrent;
       } else {
         return this.powerStationEnergyMax;
@@ -75,7 +75,6 @@ export default {
       return this.tweenedNumberCo2.toFixed(0);
     },
   },
-  methods: {},
   watch: {
     // Animate the number 💯 using GSAP
     energyProductionCalcAllCurrent: function() {

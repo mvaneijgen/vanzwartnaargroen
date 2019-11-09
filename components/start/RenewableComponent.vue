@@ -39,11 +39,14 @@ export default {
       // currentType: type,
       // initAmount: 1,
       times: 0,
+      notification: false,
     };
   }, // End data
   computed: {
     initAmount() {
-      if (this.times > 35) {
+      if (this.times > 150) {
+        return 1000;
+      } else if (this.times > 35) {
         return 100;
       } else if (this.times > 10) {
         return 10;
@@ -53,7 +56,10 @@ export default {
     },
   },
   methods: {
-    ...mapMutations(["incrementState", "decrementState"]),
+    ...mapMutations({
+      incrementState: "start/incrementState",
+      decrementState: "start/decrementState",
+    }),
     increment() {
       const keepRunning = () => {
         const payload = {
@@ -63,11 +69,12 @@ export default {
         };
 
         this.incrementState(payload);
-        this.times++;
+        // this.times++;
+        this.times += 30;
       };
       keepRunning();
       // ⏱ Run function every .5 second
-      window.setInterval(() => {
+      this.alloyKeepRunning = setInterval(() => {
         keepRunning();
       }, 500);
     },
@@ -83,12 +90,13 @@ export default {
       };
       keepRunning();
       // ⏱ Run function every .5 second
-      window.setInterval(() => {
+      this.alloyKeepRunning = setInterval(() => {
         keepRunning();
       }, 500);
     },
   },
   mounted() {
+    const alloyKeepRunning = null;
     if (process.client) {
       window.addEventListener("mouseup", e => {
         // ⏱ Clear all setInterval()'s
@@ -99,8 +107,26 @@ export default {
             w.clearInterval(i--);
           }
         })(/*window*/);
+        // clearInterval(this.alloyKeepRunning);
       });
     }
+  },
+  watch: {
+    times: function() {
+      if (!this.notification) {
+        this.notification = true;
+        const notification = {
+          title: "Wauw! Je wil wel erg graag!",
+          content:
+            "Volgens mij staat Nederland nu wel erg vol, maar oke we plaatsen nu 1000 stuks per klik!",
+          image: "",
+          type: "",
+          timer: 6000,
+          date: new Date(),
+        };
+        this.$store.commit("notifications/addNotification", notification);
+      }
+    },
   },
 };
 </script>
