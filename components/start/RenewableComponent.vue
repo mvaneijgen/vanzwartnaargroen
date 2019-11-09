@@ -69,8 +69,7 @@ export default {
         };
 
         this.incrementState(payload);
-        // this.times++;
-        this.times += 30;
+        this.times++;
       };
       keepRunning();
       // ⏱ Run function every .5 second
