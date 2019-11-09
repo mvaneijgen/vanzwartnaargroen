@@ -1,5 +1,5 @@
 <template>
-  <div class="alloy-cards alloy-items alloy-items--tools" :data-type="notification.type" @click="notificationRemove(notification.id)">
+  <div class="alloy-cards alloy-items alloy-items--tools" :data-type="notification.type" @click="notificationRemove(notification.date)">
     <div class="close" @click="notificationRemove(notification.id)">
       <icon-base width="20" height="20" icon-name="close">
         <icon-close />
