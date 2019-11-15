@@ -112,7 +112,7 @@ export default {
   },
   watch: {
     times: function() {
-      if (!this.notification) {
+      if (this.times > 150 && !this.notification) {
         this.notification = true;
         const notification = {
           title: "Wauw! Je wil wel erg graag!",

@@ -13,23 +13,16 @@
         <img src="@/assets/images/ui/nuclear.svg" alt="">
         <span class="alloy-legend">Nucliear</span>
       </button>
-      <Desertec />
     </div>
   </div>
 </template>
 
 <script>
-import Desertec from "@/components/start/Desertec.vue";
-
 import { mapMutations } from "vuex";
 
 export default {
   // props: [],
   name: "PowerCategory",
-  components: {
-    Desertec,
-  },
-
   data() {
     return {
       title: "PowerCategory",

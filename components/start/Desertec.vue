@@ -85,21 +85,34 @@ export default {
 @import "~/assets/css/common/_variables.scss";
 
 .component-Desertec {
-  position: relative;
+  position: absolute;
   transform: scale(0.7);
   @include media-breakpoint-up(lg) {
     transform: scale(1);
   }
+  top: 15vh;
+  left: -20px;
+
+  @include media-breakpoint-up(lg) {
+    top: 45vh;
+    left: -15%;
+  }
+  z-index: 100;
 }
 .content {
-  position: absolute;
-  left: -125px;
-  top: 34px;
+  // position: absolute;
+  // right: 125px;
+  // top: 34px;
+  transform: translateX(55px);
+  @include media-breakpoint-up(lg) {
+    transform: translateX(75px);
+  }
+  text-align: right;
   // background-color: rgba($brand-light, 0.6);
   background-color: $brand-one;
   color: $brand-dark;
   padding: 10px;
-  padding-right: 25px;
+  padding-left: 25px;
   font-size: 1rem;
   line-height: 1.4em;
   font-weight: 700;

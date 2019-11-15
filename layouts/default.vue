@@ -1,18 +1,19 @@
 <template>
   <div>
     <div class="alloy-body-overlay" :style="{ opacity: backgroundOpacity }"></div>
-    <Navigation />
+    <!-- <Navigation /> -->
+    <SlideNav />
     <NotificationsContainer />
     <nuxt />
   </div>
 </template>
 <script>
-import Navigation from "@/components/Navigation.vue";
+import SlideNav from "@/components/SlideNav.vue";
 import NotificationsContainer from "@/components/elements/NotificationsContainer.vue";
 
 export default {
   components: {
-    Navigation,
+    SlideNav,
     NotificationsContainer,
   },
   head() {

@@ -9,6 +9,9 @@
         <transition name="ui-slide">
           <RenewableEnergy v-if="this.$store.state.start.renewableEnergyShow" />
         </transition>
+        <transition name="ui-slide">
+          <Desertec />
+        </transition>
         <Map />
       </div>
     </keep-alive>
@@ -20,6 +23,7 @@ import Map from "@/components/start/Map.vue";
 import Progress from "@/components/start/Progress.vue";
 import RenewableEnergy from "@/components/start/RenewableEnergy.vue";
 import PowerCategory from "@/components/start/PowerCategory.vue";
+import Desertec from "@/components/start/Desertec.vue";
 
 import { mapGetters } from "vuex";
 
@@ -29,6 +33,7 @@ export default {
     Progress,
     RenewableEnergy,
     PowerCategory,
+    Desertec,
   },
   data() {
     return {

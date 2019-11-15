@@ -21,7 +21,15 @@
 </template>
 
 <script>
-export default {};
+export default {
+  head() {
+    return {
+      htmlAttrs: {
+        class: "alloy-scroll",
+      },
+    };
+  },
+};
 </script>
 
 <style lang="scss" scoped>

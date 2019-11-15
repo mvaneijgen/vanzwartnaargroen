@@ -56,7 +56,7 @@
   > * {
     flex-grow: 1;
     width: 50%;
-    padding: 5px $base-margin;
+    padding: 5px;
     @include media-breakpoint-up(lg) {
       padding: $base-margin;
     }
@@ -419,7 +419,7 @@
 // END 🏭 Power plants
 //------------------------------------------------------//
 .component-Map {
-  transform: scale(1.8);
+  transform: scale(1.7);
   @include media-breakpoint-up(sm) {
     transform: scale(1);
   }
@@ -471,8 +471,8 @@
   // background-color: rgba($brand-dark, $base-alpha/2);
 
   .wind {
-    width: 12%;
-    height: auto;
+    // width: 12%;
+    // height: auto;
     position: absolute;
     transform-origin: bottom center;
     -webkit-transform: translateZ(0);

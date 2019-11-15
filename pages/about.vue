@@ -6,15 +6,15 @@
       </div>
       <div class="alloy-content">
         <div class="col">
-          <h1 id="scroll">Colofon Van zwart naar groen</h1>
+          <h1 id="scroll">Colofon van Zwart naar Groen</h1>
           <p>
-            <em>Van zwart naar groen</em> is een product van
-            <a href="www.studioalloy.nl">Studio Alloy</a>.</p>
+            <em>van Zwart naar Groen</em> is een product van
+            <a href="//studioalloy.nl" target="_blank">Studio Alloy</a>.</p>
           <p>Het is de inzending van
-            <a href="www.studioalloy.nl" target="_blank">Studio Alloy</a> voor de
-            <a href="http://www.hackingforsustainability.nl" target="_blank">Hacking for sustainability competitie</a> van de
-            <a href="http://www.openstate.eu" target="_blank">Open State Foundation</a> en
-            <a href="http://www.atlasnatuurlijkkapitaal.nl" target="_blank">Atlas Natuurlijk Kapitaal</a>. </p>
+            <a href="//studioalloy.nl" target="_blank">Studio Alloy</a> voor de
+            <a href="//www.hackingforsustainability.nl" target="_blank">Hacking for sustainability competitie</a> van de
+            <a href="//www.openstate.eu" target="_blank">Open State Foundation</a> en
+            <a href="//www.atlasnatuurlijkkapitaal.nl" target="_blank">Atlas Natuurlijk Kapitaal</a>. </p>
           <h3>Disclaimer</h3>
           <p>
             Deze applicatie is een prototype. Aangezien de gebruikte data is gebaseerd op verschillende bronnen en voor een deel is geïnterpreteerd en herberekend, kunnen we fouten of onjuiste berekeningen niet uitsluiten. Wij doen ons best om actuele en correcte gegevens ter beschikking te stellen. Desondanks stellen wij ons niet aansprakelijk voor de actualiteit, juistheid en volledigheid van de inhoud van deze website. Studio Alloy doet een oproep om data van energiecentrales in Nederland volledig publiekelijk openbaar te maken.</p>
@@ -22,16 +22,13 @@
           </p>
           <ul>
             <li>Concept en Design:
-              <a href="//studioalloy.nl/team/ruben-daas/" target="_blank">Ruben Daas</a>
+              <a href="//studioalloy.nl/over/" target="_blank">Ruben Daas</a>
             </li>
-            <li>Design:
-              <a href="//studioalloy.nl/team/mitchel-van-eijgen/" target="_blank">Mitchel van Eijgen</a>
-            </li>
-            <li>Development:
-              <a href="//studioalloy.nl/team/wouter-hager/" target="_blank">Wouter Hager</a>
+            <li>Design & Development:
+              <a href="//studioalloy.nl/over/" target="_blank">Mitchel van Eijgen</a>
             </li>
             <li>PR en Communicatie:
-              <a href="//studioalloy.nl/team/david-hager/" target="_blank">David Hager</a>
+              <a href="//studioalloy.nl/over/" target="_blank">David Hager</a>
             </li>
           </ul>
           <p></p>
