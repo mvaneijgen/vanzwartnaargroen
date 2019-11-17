@@ -59,6 +59,8 @@ body {
   }
   > .inner {
     // position: relative;
+    width: 90vmin;
+
     @include media-breakpoint-up(lg) {
       width: 90vmin;
     }

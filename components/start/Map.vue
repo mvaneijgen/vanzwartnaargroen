@@ -99,6 +99,9 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "~/assets/css/common/_variables.scss";
+svg.map {
+  width: 100%;
+}
 .land,
 .bg-circle {
   pointer-events: none;
