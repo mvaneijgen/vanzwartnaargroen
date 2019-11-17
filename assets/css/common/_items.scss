@@ -122,7 +122,7 @@
 //------------------------------------------------------//
 .component-RenewableEnergy {
   width: 100%;
-  bottom: $base-margin * 3;
+  bottom: $base-margin * 4;
   @include media-breakpoint-up(lg) {
     bottom: 0;
   }
@@ -476,8 +476,8 @@
   // background-color: rgba($brand-dark, $base-alpha/2);
 
   .wind {
-    // width: 12%;
-    // height: auto;
+    width: 12%;
+    height: auto;
     position: absolute;
     transform-origin: bottom center;
     -webkit-transform: translateZ(0);
