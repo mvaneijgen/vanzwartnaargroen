@@ -46,12 +46,16 @@ export default {
     initAmount() {
       if (this.times > 150) {
         return 1000;
-      } else if (this.times > 35) {
+      } else if (this.times > 15) {
         return 100;
-      } else if (this.times > 10) {
+      } else if (this.times > 5) {
         return 10;
       } else {
-        return 1;
+        if (this.currentType.title === "Zonnepanelen") {
+          return 10;
+        } else {
+          return 1;
+        }
       }
     },
   },
@@ -97,11 +101,11 @@ export default {
   mounted() {
     const alloyKeepRunning = null;
     if (process.client) {
-      window.addEventListener("mouseup", e => {
+      window.addEventListener("mouseup", (e) => {
         // ⏱ Clear all setInterval()'s
-        (function(w) {
+        (function (w) {
           w = w || window;
-          var i = w.setInterval(function() {}, 100000);
+          var i = w.setInterval(function () {}, 100000);
           while (i >= 0) {
             w.clearInterval(i--);
           }
@@ -111,7 +115,7 @@ export default {
     }
   },
   watch: {
-    times: function() {
+    times: function () {
       if (this.times > 150 && !this.notification) {
         this.notification = true;
         const notification = {
