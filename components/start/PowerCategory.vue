@@ -11,7 +11,7 @@
       </button>
       <button @click="toggleOff" data-toggle="off" data-fuel="Nucleair">
         <img src="@/assets/images/ui/nuclear.svg" alt="">
-        <span class="alloy-legend">Nucliear</span>
+        <span class="alloy-legend">Nucleair</span>
       </button>
     </div>
   </div>
@@ -34,7 +34,7 @@ export default {
     ...mapMutations({
       togglePowerStationCat: "start/togglePowerStationCat",
     }),
-    toggleOff: function(e) {
+    toggleOff: function (e) {
       const target = e.target;
 
       const parameterObj = {

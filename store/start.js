@@ -9,7 +9,7 @@ export const state = () => ({
     title: "Windmolens",
     type: "windTurbines",
     amount: 2032,
-    production: 1.3, // One 🌬 Wind Turbine in kWh
+    production: 6500000, // One 🌬 Wind Turbine in kWh
     new: 0
   },
 
@@ -18,7 +18,7 @@ export const state = () => ({
     title: "Zonnepanelen",
     type: "solarPanels",
     amount: 2158,
-    production: 0.1, // One ☀️ Solar panel in kWh
+    production: 320, // One ☀️ Solar panel in kWh
     new: 0
   },
   // ∞ ⚡️ Desertec
