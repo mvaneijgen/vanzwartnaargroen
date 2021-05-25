@@ -55,9 +55,9 @@ export default {
   },
   mounted() {
     const notification = {
-      title: "Nice, je bent al goed opweg!",
+      title: "Goed bezig, je bent al goed op weg!",
       content:
-        "Met deze knoppen kun je in één keer alle kolen, gas of nucleaire centrales uit zetten",
+        "Met deze knoppen kun je in één keer alle kolen, gas of nucleaire centrales uitzetten",
       image: "",
       type: "alert",
       timer: 8000,
