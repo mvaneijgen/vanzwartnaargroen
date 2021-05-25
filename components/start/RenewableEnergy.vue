@@ -15,9 +15,9 @@ export default {
   },
   mounted() {
     const notification = {
-      title: "Wauw, de lucht is al een stuk blauwer!",
+      title: "Wauw, heerlijk schoon!",
       content:
-        "Maar niemand heeft meer stroom... Probeer nu de energieopwekking met groene stroom op te wekken.",
+        "Maar niemand heeft meer elektriciteit... Probeer de benodigde energie met groene stroom te vervangen.",
       image: "",
       type: "alert",
       timer: 12000,
